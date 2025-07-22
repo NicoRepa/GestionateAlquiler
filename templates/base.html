@@ -1,0 +1,21 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../static/output.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/styles.css">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+{% include './header.html' %}
+<body class="bg-sky-100">
+    <main class="pt-14">
+    {% block content %}
+    <!-- Este bloque guarda el contenido de cada página -->
+    {% endblock %}
+    </main>
+</body>
+{% include './footer.html' %}
+</html>
