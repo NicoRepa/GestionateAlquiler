@@ -8,6 +8,7 @@ class Alquiler(models.Model):
     Fecha_contrato = models.DateField()
     Precio_mensual = models.IntegerField()
     Meses_actualizacion_IPC = models.IntegerField()
+    Porcentaje_actualizacion = models.FloatField()
 
 class Dueno(models.Model):
     Nombre = models.CharField()
