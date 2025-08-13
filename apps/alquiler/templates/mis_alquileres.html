@@ -4,19 +4,35 @@
 {% block title %}Mis alquileres{% endblock %}
 
 {% block content %}
-
+<details>
+    <summary>Crear</summary>
 <div class="flex justify-center pt-6 flex-col items-center gap-2.5">
     <div class="flex items-center p-2 justify-between border-gray-100 border-2 rounded-3xl w-3xl font-TikTok-sans">
         <p>Crear alquiler</p>
         <a class="glass-blue p-2 rounded-lg" href="{% url 'crear_alquiler' %}">Crear</a>
     </div>
-    <div class="flex items-center p-2 justify-between border-gray-100 border-2 rounded-3xl w-3xl font-TikTok-sans">
+    <!-- <div class="flex items-center p-2 justify-between border-gray-100 border-2 rounded-3xl w-3xl font-TikTok-sans">
         <p>Crear Dueno</p>
         <a class="glass-blue p-2 rounded-lg" href="{% url 'crear_dueno' %}">Crear</a>
-    </div>
+    </div> -->
 </div>
+</details>
 
+<details>
+    <summary>Alquileres</summary>
+    <button class="bg-red-400" id="btn_crear_alquiler_modal">abrir modal</button>
+    <dialog id="crear_alquiler_modal">
+        <form action="{% url 'crear_alquiler' %}" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Crear</button>
+        </form>
+    <p>Prueba de modal</p>
+    <button class="bg-red-400" id="btn_cerrar_modal_crear_alquiler">cerrar modal</button>
+    </dialog>
+</details>
 
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<script src="/static/mis_alquileres.js"></script>
 {% endblock %}

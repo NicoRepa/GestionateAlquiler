@@ -10,13 +10,15 @@
     <title>{% block title %}{% endblock %}</title>
     <link rel="shortcut icon" href="/static/icon.ico" type="image/x-icon">
 </head>
+
+<body class="bg-white flex flex-col min-h-screen">
 {% include './header.html' %}
-<body class="bg-white">
-    <main class="pt-14">
+    <main class="pt-14 flex-grow">
     {% block content %}
     <!-- Este bloque guarda el contenido de cada página -->
     {% endblock %}
     </main>
-</body>
 {% include './footer.html' %}
+</body>
+
 </html>

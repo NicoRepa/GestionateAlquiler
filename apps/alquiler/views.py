@@ -7,6 +7,11 @@ from django.urls import reverse_lazy
 class AlquilerView(TemplateView):
     model = Alquiler
     template_name = 'mis_alquileres.html'
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # Pasa una instancia vacía del formulario para renderizarla
+        context['form'] = CrearAlquilerForm()
+        return context
 
 class CrearAlquilerView(CreateView):
     model = Alquiler
@@ -17,6 +22,6 @@ class CrearAlquilerView(CreateView):
 class CrearDuenoView(CreateView):
     model = Dueno
     form_class = CrearDuenoForm
-    template_name = 'crear_dueno.html'
+    #template_name = 'crear_dueno.html'
     success_url = reverse_lazy('mis_alquileres') 
 # Create your views here.
