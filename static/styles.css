@@ -32,3 +32,33 @@ summary {
 summary::-webkit-details-marker {
   display: none; /* Oculta el marcador en navegadores basados en WebKit (Chrome, Safari) */
 }
+
+.icon-caret {
+    transition: transform 0.9s ease; /* Agregamos una transición para que la rotación sea suave */
+    transform: rotate(0deg);
+  }
+
+  /*
+  Cuando el <details> esté abierto, rotamos el icono 180 grados
+  para que apunte hacia abajo.
+  */
+  details[open] .icon-caret {
+    transform: rotate(180deg);
+  }
+
+details{
+    max-height: 64px;
+    transition: 0.9s ease-out;
+}
+ details[open]{
+    max-height: 300px;
+}
+
+.slide-down{
+transform: translateY(-32px); /* Inicia ligeramente arriba */
+
+transition: transform 0.45s ease;
+}
+details[open] .slide-down {
+transform: translateY(0); /* Se desliza a su posición original */
+}

@@ -5,50 +5,51 @@
 
 {% block content %}
 <div class="flex justify-center flex-col items-center mt-10">
-    <details class="glass-dark w-[49rem] p-4 border-gray-100 border-2 rounded-2xl">
-        <summary class="font-TikTok-sans font-medium text-lg flex items-center gap-1"><svg width="16" height="16"><use xlink:href="../../../static/caret-up.svg"/></svg>Crear</summary>
-    <div class="flex justify-center pt-6 flex-col items-center gap-2.5">
-        <div class="glass-white flex items-center p-2 justify-between  w-3xl font-TikTok-sans">
-            <p>Crear alquiler</p>
-            <button class="glass-blue p-2 rounded-lg" id="btn_crear_alquiler_modal">Crear</button>
-            <dialog id="crear_alquiler_modal">
-            <form action="{% url 'crear_alquiler' %}" method="post">
-                {% csrf_token %}
-                <label for="id_Direccion_Propiedad" class="bg-red-600">Direccion Propiedad:</label>
-                <input type="text" name="Direccion_Propiedad" required id="id_Direccion_Propiedad">
+        <details class="glass-dark w-[49rem] p-4 border-gray-100 border-2 rounded-2xl min-h-16">
+            <summary class="font-TikTok-sans font-medium text-lg flex items-center gap-1"><svg width="16" height="16" class="icon-caret"><use xlink:href="../../../static/caret-up.svg"/></svg>Crear</summary>
+            <div class="flex justify-center pt-6 flex-col items-center gap-2.5 slide-down">
+                <div class="glass-white flex items-center p-2 justify-between  w-3xl font-TikTok-sans">
+                    <p>Crear alquiler</p>
+                    <button class="glass-blue p-2 rounded-lg" id="btn_crear_alquiler_modal">Crear</button>
+                    <dialog id="crear_alquiler_modal">
+                    <form action="{% url 'crear_alquiler' %}" method="post">
+                        {% csrf_token %}
+                        <label for="id_Direccion_Propiedad" class="bg-red-600">Direccion Propiedad:</label>
+                        <input type="text" name="Direccion_Propiedad" required id="id_Direccion_Propiedad">
 
-                <label for="id_Dueno">Dueno:</label>
-                <select name="Dueno" required id="id_Dueno">
-                    <option value="" selected>---------</option>
-                    <option value="1">Bocajs</option>
-                </select>
+                        <label for="id_Dueno">Dueno:</label>
+                        <select name="Dueno" required id="id_Dueno">
+                            <option value="" selected>---------</option>
+                            <option value="1">Bocajs</option>
+                        </select>
 
-                <label for="id_Inquilino">Inquilino:</label>
-                <input type="text" name="Inquilino" required id="id_Inquilino">
+                        <label for="id_Inquilino">Inquilino:</label>
+                        <input type="text" name="Inquilino" required id="id_Inquilino">
 
-                <label for="id_Fecha_contrato">Fecha contrato:</label>
-                <input type="text" name="Fecha_contrato" required id="id_Fecha_contrato">
+                        <label for="id_Fecha_contrato">Fecha contrato:</label>
+                        <input type="text" name="Fecha_contrato" required id="id_Fecha_contrato">
 
-                <label for="id_Precio_mensual">Precio mensual:</label>
-                <input type="number" name="Precio_mensual" required id="id_Precio_mensual">
+                        <label for="id_Precio_mensual">Precio mensual:</label>
+                        <input type="number" name="Precio_mensual" required id="id_Precio_mensual">
 
-                <label for="id_Meses_actualizacion_IPC">Meses actualizacion IPC:</label>
-                <input type="number" name="Meses_actualizacion_IPC" required id="id_Meses_actualizacion_IPC">
+                        <label for="id_Meses_actualizacion_IPC">Meses actualizacion IPC:</label>
+                        <input type="number" name="Meses_actualizacion_IPC" required id="id_Meses_actualizacion_IPC">
 
-                <label for="id_Porcentaje_actualizacion">Porcentaje de actualizacion</label>
-                <input type="number" step="any" name="Porcentaje_actualizacion" required id="id_Porcentaje_actualizacion">
-                    <button type="submit">Crear</button>
-            </form>
-                <p>Prueba de modal</p>
-                <button class="bg-red-400" id="btn_cerrar_modal_crear_alquiler">cerrar modal</button>
-        </dialog>
-        </div>
-        <!-- <div class="flex items-center p-2 justify-between border-gray-100 border-2 rounded-3xl w-3xl font-TikTok-sans">
-            <p>Crear Dueno</p>
-            <a class="glass-blue p-2 rounded-lg" href="{% url 'crear_dueno' %}">Crear</a>
-        </div> -->
-    </div>
-    </details>
+                        <label for="id_Porcentaje_actualizacion">Porcentaje de actualizacion</label>
+                        <input type="number" step="any" name="Porcentaje_actualizacion" required id="id_Porcentaje_actualizacion">
+                            <button type="submit">Crear</button>
+                    </form>
+                        <p>Prueba de modal</p>
+                        <button class="bg-red-400" id="btn_cerrar_modal_crear_alquiler">cerrar modal</button>
+                </dialog>
+                </div>
+            <!-- <div class="flex items-center p-2 justify-between border-gray-100 border-2 rounded-3xl w-3xl font-TikTok-sans">
+                <p>Crear Dueno</p>
+                <a class="glass-blue p-2 rounded-lg" href="{% url 'crear_dueno' %}">Crear</a>
+            </div> -->
+            </div>
+
+        </details>
 </div>
 
 <!--<details>
