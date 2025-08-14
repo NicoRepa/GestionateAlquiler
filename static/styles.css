@@ -1,6 +1,6 @@
 .glass-card{
 background: rgba(0, 0, 0, 0.16);
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1);
 backdrop-filter: blur(7.5px);
 }
 
@@ -10,4 +10,25 @@ border-radius: 16px;
 backdrop-filter: blur(4.8px);
 -webkit-backdrop-filter: blur(4.8px);
 border: 1px solid rgba(92, 120, 158, 0.12);
+}
+.glass-white{
+background: rgba(255, 255, 255, 0);
+border-radius: 16px;
+backdrop-filter: blur(5.1px);
+-webkit-backdrop-filter: blur(5.1px);
+border: 1px solid rgba(255, 255, 255, 0.267);
+}
+.glass-dark{
+background: rgba(109, 109, 109, 0.05);
+
+backdrop-filter: blur(4.9px);
+-webkit-backdrop-filter: blur(4.9px);
+border: 1px solid rgba(109, 109, 109, 0.14);
+}
+
+summary {
+  list-style: none; /* Oculta el marcador por defecto */
+}
+summary::-webkit-details-marker {
+  display: none; /* Oculta el marcador en navegadores basados en WebKit (Chrome, Safari) */
 }
