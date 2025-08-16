@@ -87,13 +87,17 @@
             <button class="bg-red-400" id="btn_cerrar_modal_crear_alquiler">cerrar modal</button>
     </dialog>
 </details> -->
-{% for alquiler in alquileres %}
-<div>
-    <h4>{{ alquiler.Direccion_Propiedad }}</h4> <h4>{{ alquiler.Inquilino }}</h4>
+<div class="flex justify-center flex-col items-center mt-10">
+    {% for alquiler in alquileres %}
+        <details class="glass-dark w-[49rem] p-3 border-gray-100 border-2 rounded-2xl m-2">
+            <summary class="font-TikTok-sans font-normal text-base flex items-center">{{ alquiler.Direccion_Propiedad }}</summary>
+            <button class="bg-azulado p-1.5">1</button>
+            <button class="bg-azulado p-1.5">2</button>
+            <button class="bg-azulado p-1.5">3</button>
+            <button class="bg-azulado p-1.5">4</button>
+        </details>
+    {% endfor %}
 </div>
-<br>
-{% endfor %}
-
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <script src="/static/mis_alquileres.js"></script>
 {% endblock %}
