@@ -87,7 +87,12 @@
             <button class="bg-red-400" id="btn_cerrar_modal_crear_alquiler">cerrar modal</button>
     </dialog>
 </details> -->
-
+{% for alquiler in alquileres %}
+<div>
+    <h4>{{ alquiler.Direccion_Propiedad }}</h4> <h4>{{ alquiler.Inquilino }}</h4>
+</div>
+<br>
+{% endfor %}
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <script src="/static/mis_alquileres.js"></script>

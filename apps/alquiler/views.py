@@ -4,9 +4,10 @@ from apps.alquiler.models import Alquiler, Dueno
 from apps.alquiler.forms import CrearAlquilerForm, CrearDuenoForm
 from django.urls import reverse_lazy
 
-class AlquilerView(TemplateView):
+class AlquilerView(ListView):
     model = Alquiler
     template_name = 'mis_alquileres.html'
+    context_object_name = 'alquileres'
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         # Pasa una instancia vacía del formulario para renderizarla
