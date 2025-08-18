@@ -62,3 +62,9 @@ transition: transform 0.45s ease;
 details[open] .slide-down {
 transform: translateY(0); /* Se desliza a su posición original */
 }
+
+.bg-image{
+ background-image: url('/static/lava-lamp-bubbles-670-removebg-preview.png');
+ background-repeat: no-repeat;
+ background-position: center;
+}

@@ -5,10 +5,10 @@
 
 {% block content %}
 <div class="flex justify-center flex-col items-center mt-10">
-        <details class="glass-dark w-[49rem] p-4 border-gray-100 border-2 rounded-2xl min-h-16">
+        <details class="glass-dark md:w-3xl p-4 border-gray-100 border-2 rounded-2xl min-h-16 w-xs">
             <summary class="font-TikTok-sans font-medium text-lg flex items-center gap-1"><svg width="16" height="16" class="icon-caret"><use xlink:href="../../../static/caret-up.svg"/></svg>Crear</summary>
             <div class="flex justify-center pt-6 flex-col items-center gap-2.5 slide-down">
-                <div class="glass-white flex items-center p-2 justify-between  w-3xl font-TikTok-sans">
+                <div class="glass-white flex items-center p-2 justify-between font-TikTok-sans w-full">
                     <p>Crear alquiler</p>
                     <button class="glass-blue p-2 rounded-lg" id="btn_crear_alquiler_modal">Crear</button>
                     <dialog id="crear_alquiler_modal">
@@ -87,17 +87,19 @@
             <button class="bg-red-400" id="btn_cerrar_modal_crear_alquiler">cerrar modal</button>
     </dialog>
 </details> -->
-<div class="flex justify-center flex-col items-center mt-10">
-    {% for alquiler in alquileres %}
-        <details class="glass-dark w-[49rem] p-3 border-gray-100 border-2 rounded-2xl m-2">
-            <summary class="font-TikTok-sans font-normal text-base flex items-center">{{ alquiler.Direccion_Propiedad }}</summary>
-            <button class="bg-azulado p-1.5">1</button>
-            <button class="bg-azulado p-1.5">2</button>
-            <button class="bg-azulado p-1.5">3</button>
-            <button class="bg-azulado p-1.5">4</button>
-        </details>
-    {% endfor %}
-</div>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+    <div class="flex justify-center flex-col items-center mt-10">
+        {% for alquiler in alquileres %}
+            <details class="glass-dark md:w-3xl p-3 border-gray-100 border-2 rounded-2xl m-2 w-xs">
+                <summary class="font-TikTok-sans font-normal text-base flex items-center">{{ alquiler.Direccion_Propiedad }}</summary>
+                <button class="bg-azulado p-1.5">1</button>
+                <button class="bg-azulado p-1.5">2</button>
+                <button class="bg-azulado p-1.5">3</button>
+                <button class="bg-azulado p-1.5">4</button>
+            </details>
+        {% endfor %}
+    </div>
+
+
 <script src="/static/mis_alquileres.js"></script>
 {% endblock %}
