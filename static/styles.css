@@ -16,7 +16,7 @@ background: rgba(255, 255, 255, 0);
 border-radius: 16px;
 backdrop-filter: blur(5.1px);
 -webkit-backdrop-filter: blur(5.1px);
-border: 1px solid rgba(255, 255, 255, 0.267);
+border: 1px solid rgba(109, 109, 109, 0.14);
 }
 .glass-dark{
 background: rgba(109, 109, 109, 0.05);
@@ -63,8 +63,21 @@ details[open] .slide-down {
 transform: translateY(0); /* Se desliza a su posición original */
 }
 
-.bg-image{
- background-image: url('/static/lava-lamp-bubbles-670-removebg-preview.png');
- background-repeat: no-repeat;
- background-position: center;
+.glass-only{
+background: rgba(255, 255, 255, 0.2);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(12.4px);
+-webkit-backdrop-filter: blur(12.4px);
+}
+
+
+.bg-estilo{
+  background-image: radial-gradient(
+        circle at top center,
+        rgba(92, 120, 158, 0.5),
+        transparent 70%
+      );
+      filter: blur(80px);
+      background-repeat: no-repeat;
 }

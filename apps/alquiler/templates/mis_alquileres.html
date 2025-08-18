@@ -11,36 +11,47 @@
                 <div class="glass-white flex items-center p-2 justify-between font-TikTok-sans w-full">
                     <p>Crear alquiler</p>
                     <button class="glass-blue p-2 rounded-lg" id="btn_crear_alquiler_modal">Crear</button>
-                    <dialog id="crear_alquiler_modal">
-                    <form action="{% url 'crear_alquiler' %}" method="post">
-                        {% csrf_token %}
-                        <label for="id_Direccion_Propiedad" class="bg-red-600">Direccion Propiedad:</label>
-                        <input type="text" name="Direccion_Propiedad" required id="id_Direccion_Propiedad">
-
-                        <label for="id_Dueno">Dueno:</label>
-                        <select name="Dueno" required id="id_Dueno">
-                            <option value="" selected>---------</option>
-                            <option value="1">Bocajs</option>
-                        </select>
-
-                        <label for="id_Inquilino">Inquilino:</label>
-                        <input type="text" name="Inquilino" required id="id_Inquilino">
-
-                        <label for="id_Fecha_contrato">Fecha contrato:</label>
-                        <input type="text" name="Fecha_contrato" required id="id_Fecha_contrato">
-
-                        <label for="id_Precio_mensual">Precio mensual:</label>
-                        <input type="number" name="Precio_mensual" required id="id_Precio_mensual">
-
-                        <label for="id_Meses_actualizacion_IPC">Meses actualizacion IPC:</label>
-                        <input type="number" name="Meses_actualizacion_IPC" required id="id_Meses_actualizacion_IPC">
-
-                        <label for="id_Porcentaje_actualizacion">Porcentaje de actualizacion</label>
-                        <input type="number" step="any" name="Porcentaje_actualizacion" required id="id_Porcentaje_actualizacion">
-                            <button type="submit">Crear</button>
-                    </form>
-                        <p>Prueba de modal</p>
-                        <button class="bg-red-400" id="btn_cerrar_modal_crear_alquiler">cerrar modal</button>
+                    <dialog id="crear_alquiler_modal" class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-6 bg-white rounded-lg shadow-xl">
+                        <div class="flex items-center justify-center flex-col font-TikTok-sans text-base">
+                            <form action="{% url 'crear_alquiler' %}" method="post">
+                                {% csrf_token %}
+                                <div class="flex flex-wrap m-1">
+                                    <label for="id_Direccion_Propiedad" class="w-full">Direccion Propiedad:</label>
+                                    <input type="text" name="Direccion_Propiedad" required id="id_Direccion_Propiedad" class="border-red-300 border-2 w-full">
+                                </div>
+                                <div class="flex flex-wrap">
+                                    <label for="id_Dueno" class="border-red-300 border-2 w-full">Dueno:</label>
+                                    <select name="Dueno" required id="id_Dueno" class="border-red-300 border-2 w-full">
+                                        <option value="" selected>---------</option>
+                                        <option value="1">Bocajs</option>
+                                    </select>
+                                </div>
+                                <div class="flex flex-wrap">
+                                    <label for="id_Inquilino" class="border-red-300 border-2 w-full">Inquilino:</label>
+                                    <input type="text" name="Inquilino" required id="id_Inquilino" class="border-red-300 border-2 w-full">
+                                </div>
+                                <div class="flex flex-wrap">
+                                    <label for="id_Fecha_contrato" class="border-red-300 border-2 w-full">Fecha contrato:</label>
+                                    <input type="text" name="Fecha_contrato" required id="id_Fecha_contrato" class="border-red-300 border-2 w-full">
+                                </div>
+                                <div class="flex flex-wrap">
+                                    <label for="id_Precio_mensual" class="border-red-300 border-2 w-full">Precio mensual:</label>
+                                    <input type="number" name="Precio_mensual" required id="id_Precio_mensual" class="border-red-300 border-2 w-full">
+                                </div>
+                                <div class="flex flex-wrap">
+                                    <label for="id_Meses_actualizacion_IPC" class="border-red-300 border-2 w-full">Meses actualizacion IPC:</label>
+                                    <input type="number" name="Meses_actualizacion_IPC" required id="id_Meses_actualizacion_IPC" class="border-red-300 border-2 w-full">
+                                </div>
+                                <div class="flex flex-wrap">
+                                    <label for="id_Porcentaje_actualizacion" class="border-red-300 border-2 w-full">Porcentaje de actualizacion</label>
+                                    <input type="number" step="any" name="Porcentaje_actualizacion" required id="id_Porcentaje_actualizacion" class="border-red-300 border-2 w-full">
+                                </div>
+                                <div class="flex justify-end mt-4 mb-4">
+                                    <button type="submit" class="glass-blue p-2 rounded-lg">Crear</button>
+                                </div>
+                            </form>
+                                <button class="glass-blue p-2 rounded-lg" id="btn_cerrar_modal_crear_alquiler">cerrar modal</button>
+                        </div>
                 </dialog>
                 </div>
             <!-- <div class="flex items-center p-2 justify-between border-gray-100 border-2 rounded-3xl w-3xl font-TikTok-sans">
@@ -87,8 +98,8 @@
             <button class="bg-red-400" id="btn_cerrar_modal_crear_alquiler">cerrar modal</button>
     </dialog>
 </details> -->
-
-    <div class="flex justify-center flex-col items-center mt-10">
+<div class="glass-only pt-10 pb-10 xl:ml-64 xl:mr-64 lg:ml-16 lg:mr-16 mt-10">
+    <div class="flex justify-center flex-col items-center">
         {% for alquiler in alquileres %}
             <details class="glass-dark md:w-3xl p-3 border-gray-100 border-2 rounded-2xl m-2 w-xs">
                 <summary class="font-TikTok-sans font-normal text-base flex items-center">{{ alquiler.Direccion_Propiedad }}</summary>
@@ -99,6 +110,7 @@
             </details>
         {% endfor %}
     </div>
+</div>
 
 
 <script src="/static/mis_alquileres.js"></script>
