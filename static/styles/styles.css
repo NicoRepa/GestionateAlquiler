@@ -1,0 +1,12 @@
+@import url(glass.css);
+@import url(details.css);
+@import url(pruebas.css);
+.bg-base{
+  background-image: radial-gradient(
+        circle at top center,
+        rgba(92, 120, 158, 0.5),
+        transparent 70%
+      );
+      filter: blur(80px);
+      background-repeat: no-repeat;
+}

@@ -1,0 +1,17 @@
+.details-prueba::details-content {
+	display: block;
+    margin: 0;
+	block-size: 0;
+	overflow: hidden;
+	transition-property: block-size, content-visibility;
+	transition-duration: 0.6s;
+	transition-behavior: allow-discrete;
+}
+
+.details-prueba[open]::details-content {
+	/* Fallback for browsers that don't support calc-size() function */
+	block-size: auto;
+	margin: 0;
+	/* calc-size() function allows transition to height: auto; */
+	block-size: calc-size(auto, size);
+}

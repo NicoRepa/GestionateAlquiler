@@ -1,0 +1,34 @@
+.glass-card{
+background: rgba(0, 0, 0, 0.16);
+box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1);
+backdrop-filter: blur(7.5px);
+}
+
+.glass-blue{
+background: rgba(92, 120, 158, 0.23);
+border-radius: 16px;
+backdrop-filter: blur(4.8px);
+-webkit-backdrop-filter: blur(4.8px);
+border: 1px solid rgba(92, 120, 158, 0.12);
+}
+.glass-white{
+background: rgba(255, 255, 255, 0);
+border-radius: 16px;
+backdrop-filter: blur(5.1px);
+-webkit-backdrop-filter: blur(5.1px);
+border: 1px solid rgba(109, 109, 109, 0.14);
+}
+.glass-dark{
+background: rgba(109, 109, 109, 0.05);
+
+backdrop-filter: blur(4.9px);
+-webkit-backdrop-filter: blur(4.9px);
+border: 1px solid rgba(109, 109, 109, 0.14);
+}
+.glass-only{
+background: rgba(255, 255, 255, 0.2);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(12.4px);
+-webkit-backdrop-filter: blur(12.4px);
+}
