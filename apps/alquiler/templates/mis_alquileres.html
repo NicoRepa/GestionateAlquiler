@@ -1,6 +1,5 @@
 {% extends 'base.html' %}
 {% load static %}
-
 {% block title %}Mis alquileres{% endblock %}
 
 {% block content %}
@@ -10,49 +9,7 @@
             <div class="flex justify-center pt-6 flex-col items-center gap-2.5 slide-down">
                 <div class="glass-white flex items-center p-2 justify-between font-TikTok-sans w-full">
                     <p>Crear alquiler</p>
-                    <button class="glass-blue p-2 rounded-lg hover:cursor-pointer" id="btn_crear_alquiler_modal">Crear</button>
-                    <dialog id="crear_alquiler_modal" class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-6 bg-white rounded-lg shadow-xl">
-                        <div class="flex items-center justify-center flex-col font-TikTok-sans text-base">
-                            <form action="{% url 'crear_alquiler' %}" method="post">
-                                {% csrf_token %}
-                                <div class="flex flex-wrap m-1">
-                                    <label for="id_Direccion_Propiedad" class="w-full">Direccion Propiedad:</label>
-                                    <input type="text" name="Direccion_Propiedad" required id="id_Direccion_Propiedad" class="border-red-300 border-2 w-full outline-none">
-                                </div>
-                                <div class="flex flex-wrap m-1">
-                                    <label for="id_Dueno" class="w-full">Dueno:</label>
-                                    <select name="Dueno" required id="id_Dueno" class="border-red-300 border-2 w-full outline-none">
-                                        <option value="" selected>---------</option>
-                                        <option value="1">Bocajs</option>
-                                    </select>
-                                </div>
-                                <div class="flex flex-wrap m-1">
-                                    <label for="id_Inquilino" class="w-full">Inquilino:</label>
-                                    <input type="text" name="Inquilino" required id="id_Inquilino" class="border-red-300 border-2 w-full outline-none">
-                                </div>
-                                <div class="flex flex-wrap m-1">
-                                    <label for="id_Fecha_contrato" class="w-full">Fecha contrato:</label>
-                                    <input type="text" name="Fecha_contrato" required id="id_Fecha_contrato" class="border-red-300 border-2 w-full outline-none">
-                                </div>
-                                <div class="flex flex-wrap m-1">
-                                    <label for="id_Precio_mensual" class="w-full">Precio mensual:</label>
-                                    <input type="number" name="Precio_mensual" required id="id_Precio_mensual" class="border-red-300 border-2 w-full outline-none">
-                                </div>
-                                <div class="flex flex-wrap m-1">
-                                    <label for="id_Meses_actualizacion_IPC" class="w-full">Meses actualizacion IPC:</label>
-                                    <input type="number" name="Meses_actualizacion_IPC" required id="id_Meses_actualizacion_IPC" class="border-red-300 border-2 w-full outline-none">
-                                </div>
-                                <div class="flex flex-wrap m-1">
-                                    <label for="id_Porcentaje_actualizacion" class="w-full">Porcentaje de actualizacion</label>
-                                    <input type="number" step="any" name="Porcentaje_actualizacion" required id="id_Porcentaje_actualizacion" class="border-red-300 border-2 w-full outline-none">
-                                </div>
-                                <div class="flex justify-end mt-4 mb-4">
-                                    <button type="submit" class="glass-blue p-2 rounded-lg hover:cursor-pointer">Crear</button>
-                                </div>
-                            </form>
-                                <button class="glass-blue p-2 rounded-lg hover:cursor-pointer" id="btn_cerrar_modal_crear_alquiler">cerrar modal</button>
-                        </div>
-                </dialog>
+                    {% include 'formularioalquiler.html' %}
                 </div>
             <!-- <div class="flex items-center p-2 justify-between border-gray-100 border-2 rounded-3xl w-3xl font-TikTok-sans">
                 <p>Crear Dueno</p>
@@ -106,14 +63,14 @@
                 <div class="mt-2">
                     <ul>
                         <li>Inquilino: {{ alquiler.Inquilino }}</li>
-                        <li>Fecha del contrato: {{ alquiler.Fecha_contrato }}</li>
-                        <li>Precio: ${{ alquiler.Precio_mensual }}</li>
+                        <li>Fecha del contrato: {{ alquiler.Fecha_contrato|date:'d/m/Y' }}</li>
+                        <li id="reemplazo-coma">Precio: ${{ alquiler.Precio_mensual }}</li>
                         <li>Cada cuanto se actualiza: {{ alquiler.Meses_actualizacion_IPC }} meses</li>
                         <li>Porcentaje de actualizacion: {{ alquiler.Porcentaje_actualizacion}}%</li>
                     </ul>
                 </div>
                 <div class="mt-2 pt-1.5 border-t border-gray-300">
-                    <button class="bg-azulado p-1.5 rounded-sm hover:cursor-pointer"><i class="bi bi-pencil-square text-white w-5 h-5"></i></button>
+                    {% include 'formularioeditaralquiler.html' %}
                     <button class="bg-azulado p-1.5 rounded-sm hover:cursor-pointer"><i class="bi bi-trash3 text-white w-5 h-5"></i></button>
                     <button class="bg-azulado p-1.5 rounded-sm hover:cursor-pointer">3</button>
                     <button class="bg-azulado p-1.5 rounded-sm hover:cursor-pointer">4</button>
