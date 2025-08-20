@@ -47,7 +47,14 @@ class EditarAlquilerView(UpdateView):
         return context
 
     def form_valid(self, form):
-        form.save()
+        porcentaje = form.cleaned_data.get('Porcentaje_actualizacion')
+        if porcentaje is not None:
+            instance = form.instance
+            calculo = 1 + (porcentaje / 100)
+            nuevo_precio = instance.Precio_mensual * calculo
+
+            instance.Precio_mensual = nuevo_precio
+
         return super().form_valid(form)
 
 class EliminarAlquilerView(DeleteView):

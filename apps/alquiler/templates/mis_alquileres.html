@@ -12,7 +12,7 @@
                     {% include 'formularioalquiler.html' %}
                 </div>
             <!-- <div class="flex items-center p-2 justify-between border-gray-100 border-2 rounded-3xl w-3xl font-TikTok-sans">
-                <p>Crear Dueno</p>
+                <p>Crear Dueño</p>
                 <a class="glass-blue p-2 rounded-lg" href="{% url 'crear_dueno' %}">Crear</a>
             </div> -->
             </div>
@@ -20,41 +20,7 @@
         </details>
 </div>
 
-<!--<details>
-    <summary>Alquileres</summary>
-    <button class="bg-red-400" id="btn_crear_alquiler_modal">abrir modal</button>
-    <dialog id="crear_alquiler_modal">
-        <form action="{% url 'crear_alquiler' %}" method="post">
-            {% csrf_token %}
-            <label for="id_Direccion_Propiedad" class="bg-red-600">Direccion Propiedad:</label>
-            <input type="text" name="Direccion_Propiedad" required id="id_Direccion_Propiedad">
 
-            <label for="id_Dueno">Dueno:</label>
-            <select name="Dueno" required id="id_Dueno">
-                <option value="" selected>---------</option>
-                <option value="1">Bocajs</option>
-            </select>
-
-            <label for="id_Inquilino">Inquilino:</label>
-            <input type="text" name="Inquilino" required id="id_Inquilino">
-
-            <label for="id_Fecha_contrato">Fecha contrato:</label>
-            <input type="text" name="Fecha_contrato" required id="id_Fecha_contrato">
-
-            <label for="id_Precio_mensual">Precio mensual:</label>
-            <input type="number" name="Precio_mensual" required id="id_Precio_mensual">
-
-            <label for="id_Meses_actualizacion_IPC">Meses actualizacion IPC:</label>
-            <input type="number" name="Meses_actualizacion_IPC" required id="id_Meses_actualizacion_IPC">
-
-            <label for="id_Porcentaje_actualizacion">Porcentaje de actualizacion</label>
-            <input type="number" step="any" name="Porcentaje_actualizacion" required id="id_Porcentaje_actualizacion">
-                <button type="submit">Crear</button>
-        </form>
-            <p>Prueba de modal</p>
-            <button class="bg-red-400" id="btn_cerrar_modal_crear_alquiler">cerrar modal</button>
-    </dialog>
-</details> -->
 <div class="glass-only pt-10 pb-10 xl:ml-64 xl:mr-64 lg:ml-16 lg:mr-16 mt-10">
     <div class="flex justify-center flex-col items-center">
         {% for alquiler in alquileres %}

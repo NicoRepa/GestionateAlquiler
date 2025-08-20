@@ -12,10 +12,9 @@
                                     <input type="text" name="Direccion_Propiedad" required id="id_Direccion_Propiedad" class="border-red-300 border-2 w-full outline-none" value="{{alquiler.Direccion_Propiedad}}">
                                 </div>
                                 <div class="flex flex-wrap m-1">
-                                    <label for="id_Dueno" class="w-full">Dueno:</label>
+                                    <label for="id_Dueno" class="w-full">Dueño:</label>
                                     <select name="Dueno" required id="id_Dueno" class="border-red-300 border-2 w-full outline-none">
-                                        <option value="" selected>{{alquiler.Dueno}}</option>
-                                        <option value="1">Bocajs</option>
+                                        <option value="{{alquiler.Dueno.id}}" selected>{{alquiler.Dueno}}</option>
                                     </select>
                                 </div>
                                 <div class="flex flex-wrap m-1">
@@ -36,7 +35,7 @@
                                 </div>
                                 <div class="flex flex-wrap m-1">
                                     <label for="id_Porcentaje_actualizacion" class="w-full">Porcentaje de actualizacion</label>
-                                    <input type="number" step="any" name="Porcentaje_actualizacion" required id="id_Porcentaje_actualizacion" class="border-red-300 border-2 w-full outline-none" value="{{alquiler.Porcentaje_actualizacion}}">
+                                    <input type="number" step="any" name="Porcentaje_actualizacion" required id="id_Porcentaje_actualizacion" class="border-red-300 border-2 w-full outline-none" value="">
                                 </div>
                                 <div class="flex justify-end mt-4 mb-4">
                                     <button type="submit" class="glass-blue p-2 rounded-lg hover:cursor-pointer" title="Guardar cambios">Guardar</button>
