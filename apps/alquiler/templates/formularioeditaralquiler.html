@@ -2,6 +2,9 @@
                     <button class="bg-azulado p-1.5 rounded-sm hover:cursor-pointer btn_abrir_alquiler_modal"><i class="bi bi-pencil-square text-white w-5 h-5"></i></button>
                     <dialog class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-6 bg-white rounded-lg shadow-xl alquiler_modal">
                         <div class="flex items-center justify-center flex-col font-TikTok-sans text-base">
+                            <div class="flex w-full mb-3.5 justify-end">
+                                <button class="hover:cursor-pointer btn_cerrar_modal_alquiler" title="cancelar"><i class="bi bi-x-circle text-2xl text-azulado"></i></button>
+                            </div>
                             <form action="{% url 'editar_alquiler' alquiler.id %}" method="post">
                                 {% csrf_token %}
                                 <div class="flex flex-wrap m-1">
@@ -36,9 +39,9 @@
                                     <input type="number" step="any" name="Porcentaje_actualizacion" required id="id_Porcentaje_actualizacion" class="border-red-300 border-2 w-full outline-none" value="{{alquiler.Porcentaje_actualizacion}}">
                                 </div>
                                 <div class="flex justify-end mt-4 mb-4">
-                                    <button type="submit" class="glass-blue p-2 rounded-lg hover:cursor-pointer">Crear</button>
+                                    <button type="submit" class="glass-blue p-2 rounded-lg hover:cursor-pointer" title="Guardar cambios">Guardar</button>
                                 </div>
                             </form>
-                                <button class="glass-blue p-2 rounded-lg hover:cursor-pointer btn_cerrar_modal_alquiler">cerrar modal</button>
+                                
                         </div>
                     </dialog>

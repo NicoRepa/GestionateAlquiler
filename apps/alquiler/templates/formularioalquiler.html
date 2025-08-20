@@ -2,6 +2,9 @@
                     <button class="glass-blue p-2 rounded-lg hover:cursor-pointer btn_abrir_alquiler_modal">Crear</button>
                     <dialog class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-6 bg-white rounded-lg shadow-xl alquiler_modal">
                         <div class="flex items-center justify-center flex-col font-TikTok-sans text-base">
+                            <div class="flex w-full mb-3.5 justify-end">
+                                <button class="hover:cursor-pointer btn_cerrar_modal_alquiler" title="cancelar"><i class="bi bi-x-circle text-2xl text-azulado"></i></button>
+                            </div>
                             <form action="{% url 'crear_alquiler' %}" method="post">
                                 {% csrf_token %}
                                 <div class="flex flex-wrap m-1">
@@ -39,6 +42,6 @@
                                     <button type="submit" class="glass-blue p-2 rounded-lg hover:cursor-pointer">Crear</button>
                                 </div>
                             </form>
-                                <button class="glass-blue p-2 rounded-lg hover:cursor-pointer btn_cerrar_modal_alquiler">cerrar modal</button>
+                                
                         </div>
                     </dialog>

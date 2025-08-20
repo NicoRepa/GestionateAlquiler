@@ -58,7 +58,7 @@
 <div class="glass-only pt-10 pb-10 xl:ml-64 xl:mr-64 lg:ml-16 lg:mr-16 mt-10">
     <div class="flex justify-center flex-col items-center">
         {% for alquiler in alquileres %}
-            <details class="glass-dark md:w-3xl p-3 border-gray-100 border-2 rounded-2xl m-2 w-xs details" open>
+            <details class="glass-dark md:w-3xl p-3 border-gray-100 border-2 rounded-2xl m-2 w-xs details">
                 <summary class="font-TikTok-sans font-medium flex items-center hover:cursor-pointer">{{ alquiler.Direccion_Propiedad }}</summary>
                 <div class="mt-2">
                     <ul>
@@ -66,12 +66,12 @@
                         <li>Fecha del contrato: {{ alquiler.Fecha_contrato|date:'d/m/Y' }}</li>
                         <li id="reemplazo-coma">Precio: ${{ alquiler.Precio_mensual }}</li>
                         <li>Cada cuanto se actualiza: {{ alquiler.Meses_actualizacion_IPC }} meses</li>
-                        <li>Porcentaje de actualizacion: {{ alquiler.Porcentaje_actualizacion}}%</li>
+                        <li>Ultima actualizacion: {{ alquiler.Porcentaje_actualizacion}}%</li>
                     </ul>
                 </div>
                 <div class="mt-2 pt-1.5 border-t border-gray-300">
                     {% include 'formularioeditaralquiler.html' %}
-                    <button class="bg-azulado p-1.5 rounded-sm hover:cursor-pointer"><i class="bi bi-trash3 text-white w-5 h-5"></i></button>
+                    {% include 'formularioeliminaralquiler.html' %}
                     <button class="bg-azulado p-1.5 rounded-sm hover:cursor-pointer">3</button>
                     <button class="bg-azulado p-1.5 rounded-sm hover:cursor-pointer">4</button>
                 </div>

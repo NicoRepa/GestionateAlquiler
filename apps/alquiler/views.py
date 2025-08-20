@@ -50,3 +50,13 @@ class EditarAlquilerView(UpdateView):
         form.save()
         return super().form_valid(form)
 
+class EliminarAlquilerView(DeleteView):
+    model = Alquiler
+    template_name = "eliminar_alquiler.html"
+    success_url = reverse_lazy('mis_alquileres')
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
+    def post(self, request, *args, **kwargs):
+        messages.success(request, "La propiedad ha sido eliminada exitosamente.")
+        return super().delete(request, *args, **kwargs)

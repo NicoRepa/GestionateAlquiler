@@ -1,0 +1,17 @@
+<button class="bg-azulado p-1.5 rounded-sm hover:cursor-pointer btn_abrir_alquiler_modal"><i class="bi bi-trash3 text-white w-5 h-5"></i></button>
+                    <dialog class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-6 bg-white rounded-lg shadow-xl alquiler_modal">
+                        <div class="flex flex-row-reverse mb-3.5">
+                        <button class="hover:cursor-pointer btn_cerrar_modal_alquiler" title="cancelar"><i class="bi bi-x-circle text-2xl text-azulado"></i></button>
+                        </div>
+                        <div class="flex items-center justify-center flex-col font-TikTok-sans text-base">
+                            <form action="{% url 'eliminar_alquiler' alquiler.id %}" method="post">
+                                {% csrf_token %}
+                                <div class="flex flex-wrap m-1">
+                                    <h1 class="w-full">Estas por eliminar un alquiler de forma permanente</h1>
+                                </div>
+                                <div class="flex justify-center mt-4 mb-4">
+                                    <button type="submit" class="glass-blue p-2 rounded-lg hover:cursor-pointer" title="Eliminar la propiedad">Eliminar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </dialog>
