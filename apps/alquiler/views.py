@@ -67,3 +67,13 @@ class EliminarAlquilerView(DeleteView):
     def post(self, request, *args, **kwargs):
         messages.success(request, "La propiedad ha sido eliminada exitosamente.")
         return super().delete(request, *args, **kwargs)
+
+class ImprimirAlquilerView(ListView):
+    model = Alquiler
+    template_name = "imprimir_alquiler.html"
+    context_object_name = 'alquileres'
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # Pasa una instancia vacía del formulario para renderizarla
+        context['form'] = CrearAlquilerForm()
+        return context
