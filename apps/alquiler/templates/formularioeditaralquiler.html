@@ -30,12 +30,24 @@
                                     <input type="number" name="Precio_mensual" required id="id_Precio_mensual" class="border-red-300 border-2 w-full outline-none" value="{{alquiler.Precio_mensual}}">
                                 </div>
                                 <div class="flex flex-wrap m-1">
+                                    <label for="id_Precio_Agua" class="w-full">Precio Agua:</label>
+                                    <input type="number" name="Precio_Agua" required id="id_Precio_Agua" class="border-red-300 border-2 w-full outline-none">
+                                </div>
+                                <div class="flex flex-wrap m-1">
+                                    <label for="id_Precio_ABL" class="w-full">Precio ABL:</label>
+                                    <input type="number" name="Precio_ABL" required id="id_Precio_ABL" class="border-red-300 border-2 w-full outline-none">
+                                </div>
+                                <div class="flex flex-wrap m-1">
                                     <label for="id_Meses_actualizacion_IPC" class="w-full">Meses actualizacion IPC:</label>
                                     <input type="number" name="Meses_actualizacion_IPC" required id="id_Meses_actualizacion_IPC" class="border-red-300 border-2 w-full outline-none" value="{{alquiler.Meses_actualizacion_IPC}}">
                                 </div>
                                 <div class="flex flex-wrap m-1">
                                     <label for="id_Porcentaje_actualizacion" class="w-full">Porcentaje de actualizacion</label>
                                     <input type="number" step="any" name="Porcentaje_actualizacion" id="id_Porcentaje_actualizacion" class="border-red-300 border-2 w-full outline-none" value="{{alquiler.Porcentaje_actualizacion}}" disabled>
+                                </div>
+                                <div class="flex flex-wrap m-1">
+                                    <label for="id_Observacion" class="w-full">Observaciones:</label>
+                                    <input type="text" name="Observacion" required id="id_Observacion" class="border-red-300 border-2 w-full outline-none">
                                 </div>
                                 <div class="flex justify-end mt-4 mb-4">
                                     <button type="submit" class="glass-blue p-2 rounded-lg hover:cursor-pointer" title="Guardar cambios">Guardar</button>

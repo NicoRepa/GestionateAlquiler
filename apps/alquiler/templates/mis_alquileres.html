@@ -30,7 +30,9 @@
                     <ul>
                         <li>Inquilino: {{ alquiler.Inquilino }}</li>
                         <li>Fecha del contrato: {{ alquiler.Fecha_contrato|date:'d/m/Y' }}</li>
-                        <li id="reemplazo-coma">Precio: ${{ alquiler.Precio_mensual }}</li>
+                        <li>Precio: ${{ alquiler.Precio_mensual }}</li>
+                        <li>Agua: ${{alquiler.Precio_Agua}}</li>
+                        <li>ABL: ${{alquiler.Precio_ABL}}</li>
                         <li>Cada cuanto se actualiza: {{ alquiler.Meses_actualizacion_IPC }} meses</li>
                         <li>Ultima actualizacion: {{ alquiler.Porcentaje_actualizacion}}%</li>
                     </ul>
@@ -38,15 +40,17 @@
                 <div class="mt-2 pt-1.5 border-t border-gray-300">
                     {% include 'formularioeditaralquiler.html' %}
                     {% include 'formularioeliminaralquiler.html' %}
-                    <button class="bg-azulado p-1.5 rounded-sm hover:cursor-pointer">3</button>
-                    <button class="bg-azulado p-1.5 rounded-sm hover:cursor-pointer">4</button>
                 </div>
             </details>
         {% endfor %}
     </div>
+    <div class="flex justify-end mr-10 mt-10">
+        <button id="imprimir-pagina-btn" class="glass-blue rounded-md p-1.5 hover:cursor-pointer"><span class="">Imprimir </span><i class="bi bi-printer"></i></button>
+    </div>
+    
 </div>
 
-
+<iframe id="print-iframe" name="print-iframe" style="display: none;"></iframe>
 <script src="/static/mis_alquileres.js"></script>
 <div class="-z-20 bg-base absolute inset-0 mt-60"></div>
 {% endblock %}

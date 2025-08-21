@@ -10,3 +10,7 @@
       filter: blur(80px);
       background-repeat: no-repeat;
 }
+
+.alquiler-impresion:nth-child(5n) {
+    page-break-after: always;
+  }
