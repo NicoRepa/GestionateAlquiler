@@ -51,7 +51,12 @@
                     <div class="col-start-1 col-end-1 row-start-1 row-end-3 border border-black font-bold pl-2 flex flex-col"><span class="mr-2">Resumen mensual de alquiler</span><span>{{ alquiler.Direccion_Propiedad }}</span></div>
                     <div class="col-start-2 col-end-2 row-start-1 row-end-3 border border-black font-medium pl-2 flex justify-center items-center"><span class="mr-2 text-4xl">{{ alquiler.Fecha_contrato|date:'M' }}-{{ alquiler.Fecha_contrato|date:'y' }}</span></div>
                     <div class="col-start-1 col-end-1 row-start-3 row-end-3 border border-black font-medium pl-2"><span class="mr-2">{{ alquiler.Inquilino }}</span></div>
-                    <div class="col-start-2 col-end-2 row-start-3 row-end-3 border border-black font-medium pl-2 flex justify-center items-center"><span class="mr-2">Cancelacion en efectivo</span></div>
+                    <div class="col-start-2 col-end-2 row-start-3 row-end-3 border border-black font-medium pl-2 flex justify-center items-center"><span class="mr-2">
+                        {% if alquiler.Cancelacion_pago.Metodo == 'Transferencia' %}
+                        Cancelación por {{ alquiler.Cancelacion_pago.Metodo }}
+                        {% else %}
+                        Cancelacion en {{ alquiler.Cancelacion_pago}}
+                        {% endif %}</span></div>
                     <div class="col-start-1 col-end-1 row-start-4 row-end-4 border border-black font-medium pl-2 flex">
                         <div class="w-1/2 border-r border-black font-medium"><span class="mr-2">Alquiler:</span></div>
                         <div class="w-1/2 border-l border-black font-medium"><span class="ml-2 mr-1">$</span><span class="mr-2">{{ alquiler.Precio_mensual }}</span></div>

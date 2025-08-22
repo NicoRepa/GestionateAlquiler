@@ -49,6 +49,15 @@
                                     <label for="id_Observacion" class="w-full">Observaciones:</label>
                                     <input type="text" name="Observacion" required id="id_Observacion" class="border-red-300 border-2 w-full outline-none">
                                 </div>
+                                <div class="flex flex-wrap m-1">
+                                    <label for="id_Cancelacion_pago" class="w-full">Dueño:</label>
+                                    <select name="Cancelacion_pago" required id="id_Cancelacion_pago" class="border-red-300 border-2 w-full outline-none">
+                                        <option value="" {% if not alquiler.Cancelacion_pago %}selected{% endif %} disabled>Elija un metodo</option>
+                                            {% for metodo in form.Cancelacion_pago.field.queryset %}
+                                                <option value="{{ metodo.id }}" {% if metodo == alquiler.Cancelacion_pago %}selected{% endif %}>{{ metodo.Metodo }}</option>
+                                            {% endfor %}
+                                    </select>
+                                </div>
                                 <div class="flex justify-end mt-4 mb-4">
                                     <button type="submit" class="glass-blue p-2 rounded-lg hover:cursor-pointer" title="Guardar cambios">Guardar</button>
                                 </div>

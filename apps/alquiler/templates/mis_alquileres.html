@@ -35,6 +35,7 @@
                         <li>ABL: ${{alquiler.Precio_ABL}}</li>
                         <li>Cada cuanto se actualiza: {{ alquiler.Meses_actualizacion_IPC }} meses</li>
                         <li>Ultima actualizacion: {{ alquiler.Porcentaje_actualizacion}}%</li>
+                        <li>Metodo de pago: {{ alquiler.Cancelacion_pago}}</li>
                     </ul>
                 </div>
                 <div class="mt-2 pt-1.5 border-t border-gray-300">
@@ -45,7 +46,7 @@
         {% endfor %}
     </div>
     <div class="flex justify-end mr-10 mt-10">
-        <button id="imprimir-pagina-btn" class="glass-blue rounded-md p-1.5 hover:cursor-pointer"><span class="">Imprimir </span><i class="bi bi-printer"></i></button>
+        <button id="imprimir-pagina-btn" class="glass-blue rounded-md p-1.5 hover:cursor-pointer"><span class="text-base">Imprimir </span><i class="bi bi-printer text-base"></i></button>
     </div>
     
 </div>

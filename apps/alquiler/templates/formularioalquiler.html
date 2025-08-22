@@ -15,7 +15,9 @@
                                     <label for="id_Dueno" class="w-full">Dueño:</label>
                                     <select name="Dueno" required id="id_Dueno" class="border-red-300 border-2 w-full outline-none">
                                         <option value="" selected>---------</option>
-                                        <option value="1">Bocajs</option>
+                                  {% for dueno in form.Dueno.field.queryset %}
+                                        <option value="{{ dueno.id }}">{{ dueno.Nombre }}</option>
+                                    {% endfor %}
                                     </select>
                                 </div>
                                 <div class="flex flex-wrap m-1">
@@ -32,11 +34,11 @@
                                 </div>
                                 <div class="flex flex-wrap m-1">
                                     <label for="id_Precio_Agua" class="w-full">Precio Agua:</label>
-                                    <input type="number" name="Precio_Agua" required id="id_Precio_Agua" class="border-red-300 border-2 w-full outline-none">
+                                    <input type="number" name="Precio_Agua" id="id_Precio_Agua" class="border-red-300 border-2 w-full outline-none">
                                 </div>
                                 <div class="flex flex-wrap m-1">
                                     <label for="id_Precio_ABL" class="w-full">Precio ABL:</label>
-                                    <input type="number" name="Precio_ABL" required id="id_Precio_ABL" class="border-red-300 border-2 w-full outline-none">
+                                    <input type="number" name="Precio_ABL" id="id_Precio_ABL" class="border-red-300 border-2 w-full outline-none">
                                 </div>
                                 <div class="flex flex-wrap m-1">
                                     <label for="id_Meses_actualizacion_IPC" class="w-full">Meses actualizacion IPC:</label>
@@ -44,9 +46,18 @@
                                 </div>
                                 <div class="flex flex-wrap m-1">
                                     <label for="id_Observacion" class="w-full">Observaciones:</label>
-                                    <input type="text" name="Observacion" required id="id_Observacion" class="border-red-300 border-2 w-full outline-none">
+                                    <input type="text" name="Observacion" id="id_Observacion" class="border-red-300 border-2 w-full outline-none">
                                 </div>
-
+                                <div class="flex flex-wrap m-1">
+                                    <label for="id_Cancelacion_pago" class="w-full">Metodo de pago:</label>
+                                    <select name="Cancelacion_pago" required id="id_Cancelacion_pago" class="border-red-300 border-2 w-full outline-none">
+                                        <option value="" selected disabled>Elija un metodo</option>
+                                  {% for metodo in form.Cancelacion_pago.field.queryset %}
+                                        <option value="{{ metodo.id }}">{{ metodo.Metodo }}</option>
+                                    {% endfor %}
+                                    </select>
+                                </div>
+                                
                                 <div class="flex justify-end mt-4 mb-4">
                                     <button type="submit" class="glass-blue p-2 rounded-lg hover:cursor-pointer">Crear</button>
                                 </div>
