@@ -1,11 +1,11 @@
 
                     <button class="bg-azulado p-1.5 rounded-sm hover:cursor-pointer btn_abrir_alquiler_modal"><i class="bi bi-pencil-square text-white w-5 h-5"></i></button>
-                    <dialog class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-6 bg-white rounded-lg shadow-xl alquiler_modal">
+                    <dialog class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-6 bg-white rounded-lg shadow-xl alquiler_modal w-1/2">
                         <div class="flex items-center justify-center flex-col font-TikTok-sans text-base">
                             <div class="flex w-full mb-3.5 justify-end">
                                 <button class="hover:cursor-pointer btn_cerrar_modal_alquiler" title="cancelar"><i class="bi bi-x-circle text-2xl text-azulado"></i></button>
                             </div>
-                            <form action="{% url 'editar_alquiler' alquiler.id %}" method="post">
+                            <form action="{% url 'editar_alquiler' alquiler.id %}" method="post" class="w-full">
                                 {% csrf_token %}
                                 <div class="flex flex-wrap m-1">
                                     <label for="id_Direccion_Propiedad" class="w-full">Direccion Propiedad:</label>
@@ -31,15 +31,19 @@
                                 </div>
                                 <div class="flex flex-wrap m-1">
                                     <label for="id_Precio_Agua" class="w-full">Precio Agua:</label>
-                                    <input type="number" name="Precio_Agua" required id="id_Precio_Agua" class="border-red-300 border-2 w-full outline-none">
+                                    <input type="number" name="Precio_Agua" id="id_Precio_Agua" class="border-red-300 border-2 w-full outline-none" value="{{alquiler.Precio_Agua}}">
                                 </div>
                                 <div class="flex flex-wrap m-1">
                                     <label for="id_Precio_ABL" class="w-full">Precio ABL:</label>
-                                    <input type="number" name="Precio_ABL" required id="id_Precio_ABL" class="border-red-300 border-2 w-full outline-none">
+                                    <input type="number" name="Precio_ABL"  id="id_Precio_ABL" class="border-red-300 border-2 w-full outline-none" value="{{alquiler.Precio_ABL}}">
+                                </div>
+                                <div class="flex flex-wrap m-1">
+                                    <label for="id_Precio_Pasto" class="w-full">Precio corte de pasto:</label>
+                                    <input type="number" name="Precio_Pasto" id="id_Precio_Pasto" class="border-red-300 border-2 w-full outline-none" value="{{alquiler.Precio_Pasto}}">
                                 </div>
                                 <div class="flex flex-wrap m-1">
                                     <label for="id_Meses_actualizacion_IPC" class="w-full">Meses actualizacion IPC:</label>
-                                    <input type="number" name="Meses_actualizacion_IPC" required id="id_Meses_actualizacion_IPC" class="border-red-300 border-2 w-full outline-none" value="{{alquiler.Meses_actualizacion_IPC}}">
+                                    <input type="number" name="Meses_actualizacion_IPC"  id="id_Meses_actualizacion_IPC" class="border-red-300 border-2 w-full outline-none" value="{{alquiler.Meses_actualizacion_IPC}}">
                                 </div>
                                 <div class="flex flex-wrap m-1">
                                     <label for="id_Porcentaje_actualizacion" class="w-full">Porcentaje de actualizacion</label>
@@ -47,7 +51,7 @@
                                 </div>
                                 <div class="flex flex-wrap m-1">
                                     <label for="id_Observacion" class="w-full">Observaciones:</label>
-                                    <input type="text" name="Observacion" required id="id_Observacion" class="border-red-300 border-2 w-full outline-none">
+                                    <textarea name="Observacion" id="id_Observacion" class="border-red-300 border-2 w-full outline-none resize-none" rows="3" maxlength="250">{{alquiler.Observacion}}</textarea>
                                 </div>
                                 <div class="flex flex-wrap m-1">
                                     <label for="id_Cancelacion_pago" class="w-full">Dueño:</label>

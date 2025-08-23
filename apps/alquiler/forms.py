@@ -5,7 +5,7 @@ class CrearAlquilerForm(forms.ModelForm):
     Fecha_contrato = forms.DateField(input_formats=['%d/%m/%Y','%d-%m-%Y'])
     class Meta:
         model = Alquiler
-        fields = ['Direccion_Propiedad','Dueno','Inquilino','Fecha_contrato','Precio_mensual','Meses_actualizacion_IPC','Porcentaje_actualizacion','Precio_Agua','Precio_ABL','Observacion','Cancelacion_pago' ]
+        fields = ['Direccion_Propiedad','Dueno','Inquilino','Fecha_contrato','Precio_mensual','Meses_actualizacion_IPC','Porcentaje_actualizacion','Precio_Agua','Precio_ABL','Observacion','Cancelacion_pago','Precio_Pasto' ]
 
 class CrearDuenoForm(forms.ModelForm):
     class Meta:
