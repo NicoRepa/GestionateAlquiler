@@ -3,3 +3,5 @@ db.sqlite3
 .env
 node_modules/
 README.md
+prueba.js
+pruebas.css

@@ -11,6 +11,9 @@
       background-repeat: no-repeat;
 }
 
-.alquiler-impresion:nth-child(5n) {
-    page-break-after: always;
+@media print {
+  .alquiler-impresion{
+    break-inside: avoid;
+    display: block;
   }
+}
