@@ -31,41 +31,59 @@ botonImprimir.addEventListener('click', () => {
 });
 
 
-
-const checkbox_agua = document.getElementById('checkbox_agua');
+//JS para checkbox de crear alquiler
+const checkbox_Agua = document.getElementById('checkbox_agua');
 const input_Agua = document.getElementById('id_Precio_Agua');
-const div_agua = document.getElementById('div-agua');
-
-checkbox_agua.addEventListener('change', function() {
-  if (checkbox_agua.checked) {
-    input_Agua.removeAttribute('disabled');
-  } else {
-    input_Agua.setAttribute('disabled','disabled');
-    input_Agua.value ='';
-  }
-});
-
+const checkbox_Pasto = document.getElementById('checkbox_Pasto');
+const input_Pasto = document.getElementById('id_Precio_Pasto');
 const checkbox_ABL = document.getElementById('checkbox_ABL');
 const input_ABL = document.getElementById('id_Precio_ABL');
 
-checkbox_ABL.addEventListener('change',function(){
-  if (checkbox_ABL.checked){
-    input_ABL.removeAttribute('disabled');
-  } else {
-    input_ABL.setAttribute('disabled','disabled');
-    input_ABL.value = '';
+function checkbox_crear_alquiler(checkbox,input){
+  if (checkbox.checked){
+    input.removeAttribute('disabled');
+  }else {
+    input.setAttribute('disabled','disabled')
+    input.value = '';
+
   }
+}
+
+checkbox_Agua.addEventListener('change', function() {
+  checkbox_crear_alquiler(checkbox_Agua,input_Agua)
 });
 
-const checkbox_Pasto = document.getElementById('checkbox_Pasto');
-const input_Pasto = document.getElementById('id_Precio_Pasto');
+
+
+checkbox_ABL.addEventListener('change',function(){
+  checkbox_crear_alquiler(checkbox_ABL,input_ABL)
+});
+
+
 
 checkbox_Pasto.addEventListener('change',function(){
-  if (checkbox_Pasto.checked){
-    input_Pasto.removeAttribute('disabled');
-  }else {
-    input_Pasto.setAttribute('disabled','disabled')
-    input_Pasto.value = '';
-
-  }
+  checkbox_crear_alquiler(checkbox_Pasto,input_Pasto)
 });
+
+//JS para checkbox de editar alquiler
+
+const checkbox_agua_editar = document.getElementById('checkbox_agua_editar');
+const input_agua_editar = document.getElementById('id_Precio_Agua_editar');
+const checkbox_ABL_editar = document.getElementById('checkbox_ABL_editar');
+const input_ABL_editar = document.getElementById('id_Precio_ABL_editar');
+const checkbox_Pasto_editar = document.getElementById('checkbox_Pasto_editar');
+const input_Pasto_editar = document.getElementById('id_Precio_Pasto_editar');
+
+function actualizarCheckbox(dato1,dato2) {
+  if (dato1.value !== '0') {
+    // Si el input no está vacío, marca el checkbox
+    dato1.removeAttribute('disabled')
+    dato2.checked = true;
+  } else {
+    // Si está vacío, desmarca el checkbox
+    dato2.checked = false;
+  }
+}
+actualizarCheckbox(input_agua_editar,checkbox_agua_editar)
+actualizarCheckbox(input_ABL_editar,checkbox_ABL_editar)
+actualizarCheckbox(input_Pasto_editar,checkbox_Pasto_editar)

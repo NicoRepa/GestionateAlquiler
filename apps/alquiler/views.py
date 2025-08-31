@@ -30,7 +30,7 @@ class CrearAlquilerView(LoginRequiredMixin, CreateView):
 class CrearDuenoView( CreateView):
     model = Dueno
     form_class = CrearDuenoForm
-    #template_name = 'crear_dueno.html'
+    template_name = 'crear_dueno.html'
     success_url = reverse_lazy('mis_alquileres') 
 # Create your views here.
 

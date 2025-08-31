@@ -1,0 +1,81 @@
+
+                    <button class="bg-azulado p-1.5 rounded-sm hover:cursor-pointer btn_abrir_alquiler_modal"><i class="bi bi-pencil-square text-white w-5 h-5"></i></button>
+                    <dialog class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-6 bg-white rounded-lg shadow-xl alquiler_modal w-1/3">
+                        <div class="flex items-center justify-center flex-col font-TikTok-sans text-base">
+                            <div class="flex w-full mb-3.5 justify-end">
+                                <button class="hover:cursor-pointer btn_cerrar_modal_alquiler" title="cancelar"><i class="bi bi-x-circle text-2xl text-azulado"></i></button>
+                            </div>
+                            <form action="{% url 'editar_alquiler' alquiler.id %}" method="post" class="w-full">
+                                {% csrf_token %}
+                                <div class="flex">
+                                    <div class="flex flex-col m-1 w-1/2 border rounded-lg font-TikTok-sans p-2 transition-colors duration-300 focus-within:border-azulado border-gray-200">
+                                        <label for="id_Direccion_Propiedad" class="text-xs text-gray-900">Direccion de la propiedad:</label>
+                                        <input type="text" id="id_Direccion_Propiedad" name="Direccion_Propiedad" required class="transition-colors duration-300 focus:outline-0 border-b border-gray-200 focus:border-azulado text-base mt-0.5" value="{{alquiler.Direccion_Propiedad}}">
+                                    </div>
+                                    <div class="flex flex-col m-1 w-1/2 border rounded-lg font-TikTok-sans p-2 transition-colors duration-300 focus-within:border-azulado border-gray-200">
+                                        <label for="id_Dueno" class="text-xs text-gray-900">Dueño:</label>
+                                        <select name="Dueno" required id="id_Dueno" class="transition-colors duration-300 focus:outline-0 border-b border-gray-200 focus:border-azulado text-base mt-0.5">
+                                            <option disabled>Elige una opcion</option>
+                                            {% for dueno in form.Dueno.field.queryset %}
+                                                <option value="{{ dueno.id }}" {%if dueno.id == alquiler.Dueno.id %}selected{% endif %}>{{ dueno.Nombre }}</option>
+                                            {% endfor %}      
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="flex">
+                                    <div class="flex flex-col m-1 w-1/2 border rounded-lg font-TikTok-sans p-2 transition-colors duration-300 focus-within:border-azulado border-gray-200">
+                                        <label for="id_Inquilino" class="text-xs text-gray-900">Inquilino:</label>
+                                        <input type="text" name="Inquilino" required id="id_Inquilino" class="transition-colors duration-300 focus:outline-0 border-b border-gray-200 focus:border-azulado text-base mt-0.5" value="{{alquiler.Inquilino}}"/>
+                                    </div>
+                                    <div class="flex flex-col m-1 w-1/2 border rounded-lg font-TikTok-sans p-2 transition-colors duration-300 focus-within:border-azulado border-gray-200">
+                                        <label for="id_Fecha_contrato" class="text-xs text-gray-900">Fecha del contrato:</label>
+                                        <input type="date" id="id_Fecha_contrato" name="Fecha_contrato" required class="transition-colors duration-300 focus:outline-0 border-b border-gray-200 focus:border-azulado text-base mt-0.5" value="{{alquiler.Fecha_contrato|date:'Y-m-d'}}"/>
+                                    </div>
+                                </div>
+                                <div class="flex">
+                                    <div class="flex flex-col m-1 w-1/2 border rounded-lg font-TikTok-sans p-2 transition-colors duration-300 focus-within:border-azulado border-gray-200">
+                                        <label for="id_Precio_mensual" class="text-xs text-gray-900">Precio del alquiler:</label>
+                                        <div class="text-base mt-0.5">
+                                            <span class="w-[5%] mr-1">$</span><input type="number" name="Precio_mensual" required id="id_Precio_mensual" class="w-[94%] transition-colors duration-300 focus:outline-0 border-b border-gray-200 focus:border-azulado [&::-webkit-inner-spin-button]:appearance-none" value="{{alquiler.Precio_mensual}}"/>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-col m-1 w-1/2 border rounded-lg font-TikTok-sans p-2 transition-colors duration-300 focus-within:border-azulado border-gray-200">
+                                        <label for="id_Meses_actualizacion_IPC" class="text-xs text-gray-900">Meses actualizacion IPC:</label>
+                                        <input type="number" name="Meses_actualizacion_IPC" required id="id_Meses_actualizacion_IPC" class="transition-colors duration-300 focus:outline-0 border-b border-gray-200 focus:border-azulado text-base mt-0.5 [&::-webkit-inner-spin-button]:appearance-none" value="{{alquiler.Meses_actualizacion_IPC}}">
+                                    </div>
+                                </div>
+                                <div class="flex">
+                                    <div class="flex flex-col m-1 w-1/2 border rounded-lg font-TikTok-sans p-2 transition-colors duration-300 focus-within:border-azulado border-gray-200">
+                                        <label for="id_Cancelacion_pago" class="text-xs text-gray-900">Metodo de pago:</label>
+                                        <select name="Cancelacion_pago" required id="id_Cancelacion_pago" class="transition-colors duration-300 focus:outline-0 border-b border-gray-200 focus:border-azulado text-base mt-0.5">
+                                            <option value="" disabled>Elegi un metodo</option>
+                                            {% for metodo in form.Cancelacion_pago.field.queryset %}
+                                                <option value="{{ metodo.id }}" {%if metodo.id == alquiler.Cancelacion_pago.id %}selected{% endif %}>{{ metodo.Metodo }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                    <div class="flex flex-col m-1 w-1/2 border rounded-lg font-TikTok-sans p-2 transition-colors duration-300 focus-within:border-azulado border-gray-200">
+                                        <label for="id_Porcentaje_actualizacion" class="text-xs text-gray-900">Porcentaje de actualizacion</label>
+                                        <input type="number" step="any" name="Porcentaje_actualizacion" id="id_Porcentaje_actualizacion" class="transition-colors duration-300 focus:outline-0 border-b border-gray-200 focus:border-azulado text-base mt-0.5 [&::-webkit-inner-spin-button]:appearance-none" value="{{alquiler.Porcentaje_actualizacion}}" disabled>
+                                    </div>
+                                </div>
+                                <div class="flex m-1 flex-col">
+                                    <p>Le tienes que cobrar alguno de estos servicios?</p>
+                                    <ul class="flex flex-col gap-2.5 justify-around">
+                                        <li class="grid grid-rows-1 grid-cols-[5%_30%_5%_60%] items-center gap-1.5"><input type="checkbox" name="" id="checkbox_agua_editar" class="size-4 col-start-1 col-end-2"><span class="text-sm col-start-2 col-end-3">Agua</span><span class="text-sm col-start-3 col-end-4 flex justify-end">$</span><input disabled type="number" name="Precio_Agua" id="id_Precio_Agua_editar" class="transition-colors duration-300 focus:outline-0 border-b border-gray-200 focus:border-azulado text-base mt-0.5 [&::-webkit-inner-spin-button]:appearance-none col-start-4 col-end-5 w-1/3" value="{{alquiler.Precio_Agua}}"></li>
+                                        <li class="grid grid-rows-1 grid-cols-[5%_30%_5%_60%] items-center gap-1.5"><input type="checkbox" name="" id="checkbox_ABL_editar" class="size-4 col-start-1 col-end-2"><span class="text-sm col-start-2 col-end-3">ABL</span><span class="text-sm col-start-3 col-end-4 flex justify-end">$</span><input disabled type="number" name="Precio_ABL" id="id_Precio_ABL_editar" class="transition-colors duration-300 focus:outline-0 border-b border-gray-200 focus:border-azulado text-base mt-0.5 [&::-webkit-inner-spin-button]:appearance-none col-start-4 col-end-5 w-1/3" value="{{alquiler.Precio_ABL}}"></li>
+                                        <li class="grid grid-rows-1 grid-cols-[5%_30%_5%_60%] items-center gap-1.5"><input type="checkbox" name="" id="checkbox_Pasto_editar" class="size-4 col-start-1 col-end-2"><span class="text-sm col-start-2 col-end-3">Corte de pasto</span><span class="text-sm col-start-3 col-end-4 flex justify-end">$</span><input disabled type="number" name="Precio_Pasto" id="id_Precio_Pasto_editar" class="transition-colors duration-300 focus:outline-0 border-b border-gray-200 focus:border-azulado text-base mt-0.5 [&::-webkit-inner-spin-button]:appearance-none col-start-4 col-end-5 w-1/3" value="{{alquiler.Precio_Pasto}}"></li>
+                                    </ul>
+                                </div>
+                                <div class="flex flex-col m-1 w-[99%] border rounded-lg font-TikTok-sans p-2 transition-colors duration-300 focus-within:border-azulado border-gray-200">
+                                    <label for="id_Observacion" class="text-xs text-gray-900">Observaciones:</label>
+                                    <textarea name="Observacion" id="id_Observacion" class="transition-colors duration-300 focus:outline-0 text-base mt-0.5 resize-none" rows="4" maxlength="250">{{alquiler.Observacion}}</textarea>
+                                </div>
+
+                                <div class="flex justify-end mt-4 mb-4">
+                                    <button type="submit" class="glass-blue p-2 rounded-lg hover:cursor-pointer" title="Guardar cambios">Guardar</button>
+                                </div>
+                            </form>
+                                
+                        </div>
+                    </dialog>
