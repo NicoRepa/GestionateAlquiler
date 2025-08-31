@@ -8,82 +8,71 @@
                             <form action="{% url 'crear_alquiler' %}" method="post" class="w-full">
                                 {% csrf_token %}
                                 <div class="flex">
-                                    <div class="relative m-1 w-1/2">
-                                        <input type="text" id="id_Direccion_Propiedad" name="Direccion_Propiedad" required class="block px-2.5 pb-2.5 pt-2.5 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-600 appearance-none   focus:outline-none focus:ring-0 focus:border-blue-600 peer hover:cursor-pointer focus:cursor-text" placeholder=" " />
-                                        <label for="id_Direccion_Propiedad" class="absolute text-sm text-gray-500  duration-300 transform -translate-y-[18px] scale-75 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-focus:text-blue-600  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-[18px] rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Direccion de la propiedad:</label>
+                                    <div class="flex flex-col m-1 w-1/2 border rounded-lg font-TikTok-sans p-2 transition-colors duration-300 focus-within:border-azulado border-gray-200">
+                                        <label for="id_Direccion_Propiedad" class="text-xs text-gray-900">Direccion de la propiedad:</label>
+                                        <input type="text" id="id_Direccion_Propiedad" name="Direccion_Propiedad" required class="transition-colors duration-300 focus:outline-0 border-b border-gray-200 focus:border-azulado text-base mt-0.5">
                                     </div>
-                                    <div class="relative m-1 w-1/2">
-                                        <select name="Dueno" required id="id_Dueno" class="block px-2.5 pb-2.5 pt-2.5 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none  dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer hover:cursor-pointer focus:cursor-text">
+                                    <div class="flex flex-col m-1 w-1/2 border rounded-lg font-TikTok-sans p-2 transition-colors duration-300 focus-within:border-azulado border-gray-200">
+                                        <label for="id_Dueno" class="text-xs text-gray-900">Dueño:</label>
+                                        <select name="Dueno" required id="id_Dueno" class="transition-colors duration-300 focus:outline-0 border-b border-gray-200 focus:border-azulado text-base mt-0.5">
                                             <option selected disabled>Elija una opcion</option>
                                             {% for dueno in form.Dueno.field.queryset %}
                                                 <option value="{{ dueno.id }}">{{ dueno.Nombre }}</option>
                                             {% endfor %}      
                                         </select>
-                                        <label for="id_Dueno" class="absolute text-sm text-gray-500  duration-300 transform -translate-y-[18px] scale-75 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-focus:text-blue-600  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-[18px] rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Dueño:</label>
                                     </div>
                                 </div>
                                 <div class="flex">
-                                    <div class="relative m-1 w-1/2">
-                                        <input type="text" name="Inquilino" required id="id_Inquilino" class="block px-2.5 pb-2.5 pt-2.5 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-600 appearance-none   focus:outline-none focus:ring-0 focus:border-blue-600 peer hover:cursor-pointer focus:cursor-text" placeholder=" " />
-                                        <label for="id_Inquilino" class="absolute text-sm text-gray-500  duration-300 transform -translate-y-[18px] scale-75 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-focus:text-blue-600  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-[18px] rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Inquilino:</label>
+                                    <div class="flex flex-col m-1 w-1/2 border rounded-lg font-TikTok-sans p-2 transition-colors duration-300 focus-within:border-azulado border-gray-200">
+                                        <label for="id_Inquilino" class="text-xs text-gray-900">Inquilino:</label>
+                                        <input type="text" name="Inquilino" required id="id_Inquilino" class="transition-colors duration-300 focus:outline-0 border-b border-gray-200 focus:border-azulado text-base mt-0.5"/>
                                     </div>
-                                    <div class="relative m-1 w-1/2">
-                                        <input type="text" id="id_Fecha_contrato" name="Fecha_contrato" required class="block px-2.5 pb-2.5 pt-2.5 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-600 appearance-none   focus:outline-none focus:ring-0 focus:border-blue-600 peer hover:cursor-pointer focus:cursor-text" placeholder=" " />
-                                        <label for="id_Fecha_contrato" class="absolute text-sm text-gray-500  duration-300 transform -translate-y-[18px] scale-75 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-focus:text-blue-600  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-[18px] rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Fecha del contrato:</label>
+                                    <div class="flex flex-col m-1 w-1/2 border rounded-lg font-TikTok-sans p-2 transition-colors duration-300 focus-within:border-azulado border-gray-200">
+                                        <label for="id_Fecha_contrato" class="text-xs text-gray-900">Fecha del contrato:</label>
+                                        <input type="date" id="id_Fecha_contrato" name="Fecha_contrato" required class="transition-colors duration-300 focus:outline-0 border-b border-gray-200 focus:border-azulado text-base mt-0.5"/>
                                     </div>
                                 </div>
                                 <div class="flex">
-                                    <div class="relative m-1 w-1/2">
-                                        <input type="number" name="Precio_mensual" required id="id_Precio_mensual" class="block px-2.5 pb-2.5 pt-2.5 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-600 appearance-none   focus:outline-none focus:ring-0 focus:border-blue-600 peer hover:cursor-pointer focus:cursor-text [appearance:textfield] [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none" placeholder=" " />
-                                        <label for="id_Precio_mensual" class="absolute text-sm text-gray-500  duration-300 transform -translate-y-[18px] scale-75 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-focus:text-blue-600  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-[18px] rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Precio del alquiler:</label>
+                                    <div class="flex flex-col m-1 w-1/2 border rounded-lg font-TikTok-sans p-2 transition-colors duration-300 focus-within:border-azulado border-gray-200">
+                                        <label for="id_Precio_mensual" class="text-xs text-gray-900">Precio del alquiler:</label>
+                                        <div class="text-base mt-0.5">
+                                            <span class="w-[5%] mr-1">$</span><input type="number" name="Precio_mensual" required id="id_Precio_mensual" class="w-[94%] transition-colors duration-300 focus:outline-0 border-b border-gray-200 focus:border-azulado [&::-webkit-inner-spin-button]:appearance-none"/>
+                                        </div>
+                                        </div>
+                                        
+                                        
+                                    <div class="flex flex-col m-1 w-1/2 border rounded-lg font-TikTok-sans p-2 transition-colors duration-300 focus-within:border-azulado border-gray-200">
+                                        <label for="id_Meses_actualizacion_IPC" class="text-xs text-gray-900">Meses actualizacion IPC:</label>
+                                        <input type="number" name="Meses_actualizacion_IPC" required id="id_Meses_actualizacion_IPC" class="transition-colors duration-300 focus:outline-0 border-b border-gray-200 focus:border-azulado text-base mt-0.5 [&::-webkit-inner-spin-button]:appearance-none">
                                     </div>
-                                    <div class="relative m-1 w-1/2"></div>
+                                </div>
+                                <div class="flex flex-col m-1 w-[99%] border rounded-lg font-TikTok-sans p-2 transition-colors duration-300 focus-within:border-azulado border-gray-200">
+                                    <label for="id_Cancelacion_pago" class="text-xs text-gray-900">Metodo de pago:</label>
+                                    <select name="Cancelacion_pago" required id="id_Cancelacion_pago" class="transition-colors duration-300 focus:outline-0 border-b border-gray-200 focus:border-azulado text-base mt-0.5">
+                                        <option value="" selected disabled>Elegi un metodo</option>
+                                        {% for metodo in form.Cancelacion_pago.field.queryset %}
+                                            <option value="{{ metodo.id }}">{{ metodo.Metodo }}</option>
+                                        {% endfor %}
+                                    </select>
                                 </div>
                                 <div class="flex m-1 flex-col">
                                     <p>Le tienes que cobrar alguno de estos servicios?</p>
-                                    <ul class="flex gap-2.5 justify-around">
-                                        <li class="flex items-center justify-center gap-2">Agua <input type="checkbox" name="" id="checkbox_agua"></li>
-                                        <li class="flex items-center justify-center gap-2">ABL <input type="checkbox" name="" id="checkbox_ABL"></li>
-                                        <li class="flex items-center justify-center gap-2">Corte de pasto <input type="checkbox" name="" id="checkbox_Pasto"></li>
+                                    <ul class="flex flex-col gap-2.5 justify-around">
+                                        <li class="grid grid-rows-1 grid-cols-[5%_30%_5%_60%] items-center gap-1.5"><input type="checkbox" name="" id="checkbox_agua" class="size-4 col-start-1 col-end-2"><span class="text-sm col-start-2 col-end-3">Agua</span><span class="text-sm col-start-3 col-end-4 flex justify-end">$</span><input disabled type="number" name="Precio_Agua" id="id_Precio_Agua" class="transition-colors duration-300 focus:outline-0 border-b border-gray-200 focus:border-azulado text-base mt-0.5 [&::-webkit-inner-spin-button]:appearance-none col-start-4 col-end-5 w-1/3"></li>
+                                        <li class="grid grid-rows-1 grid-cols-[5%_30%_5%_60%] items-center gap-1.5"><input type="checkbox" name="" id="checkbox_ABL" class="size-4 col-start-1 col-end-2"><span class="text-sm col-start-2 col-end-3">ABL</span><span class="text-sm col-start-3 col-end-4 flex justify-end">$</span><input disabled type="number" name="Precio_ABL" id="id_Precio_ABL" class="transition-colors duration-300 focus:outline-0 border-b border-gray-200 focus:border-azulado text-base mt-0.5 [&::-webkit-inner-spin-button]:appearance-none col-start-4 col-end-5 w-1/3"></li>
+                                        <li class="grid grid-rows-1 grid-cols-[5%_30%_5%_60%] items-center gap-1.5"><input type="checkbox" name="" id="checkbox_Pasto" class="size-4 col-start-1 col-end-2"><span class="text-sm col-start-2 col-end-3">Corte de pasto</span><span class="text-sm col-start-3 col-end-4 flex justify-end">$</span><input disabled type="number" name="Precio_Pasto" id="id_Precio_Pasto" class="transition-colors duration-300 focus:outline-0 border-b border-gray-200 focus:border-azulado text-base mt-0.5 [&::-webkit-inner-spin-button]:appearance-none col-start-4 col-end-5 w-1/3"></li>
                                     </ul>
                                 </div>
-                                <div class="flex invisible" id="div-invisible">
-                                    <div class="relative m-1 w-1/3 flex invisible" id="div-agua">
-                                        <input type="number" name="Precio_Agua" id="id_Precio_Agua" class="block px-2.5 pb-2.5 pt-2.5 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-600 appearance-none   focus:outline-none focus:ring-0 focus:border-blue-600 peer hover:cursor-pointer focus:cursor-text" placeholder=" " />
-                                        <label for="id_Precio_Agua1" class="absolute text-sm text-gray-500  duration-300 transform -translate-y-[18px] scale-75 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-focus:text-blue-600  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-[18px] rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Precio del agua:</label>
-                                    </div>
-                                    <div class="relative m-1 w-1/3 flex invisible" id="div-ABL">
-                                        <input type="number" name="Precio_ABL" id="id_Precio_ABL" class="block px-2.5 pb-2.5 pt-2.5 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-600 appearance-none   focus:outline-none focus:ring-0 focus:border-blue-600 peer hover:cursor-pointer focus:cursor-text" placeholder=" " >
-                                        <label for="id_Precio_ABL" class="absolute text-sm text-gray-500  duration-300 transform -translate-y-[18px] scale-75 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-focus:text-blue-600  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-[18px] rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Precio ABL:</label>
-                                    </div>
-                                <div class="relative m-1 w-1/3 flex invisible" id="div-Pasto">
-                                        <input type="number" name="Precio_Pasto" id="id_Precio_Pasto" class="block px-2.5 pb-2.5 pt-2.5 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-600 appearance-none   focus:outline-none focus:ring-0 focus:border-blue-600 peer hover:cursor-pointer focus:cursor-text" placeholder=" " >
-                                        <label for="id_Precio_Pasto" class="absolute text-sm text-gray-500  duration-300 transform -translate-y-[18px] scale-75 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-focus:text-blue-600  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-[18px] rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Precio corte de pasto:</label>
-                                    </div>
-                                </div> 
                                 
-                                <div class="flex flex-wrap m-1">
-                                    <label for="id_Meses_actualizacion_IPC" class="w-full">Meses actualizacion IPC:</label>
-                                    <input type="number" name="Meses_actualizacion_IPC" required id="id_Meses_actualizacion_IPC" class="border-red-300 border-2 w-full outline-none">
+                                <div class="flex flex-col m-1 w-[99%] border rounded-lg font-TikTok-sans p-2 transition-colors duration-300 focus-within:border-azulado border-gray-200">
+                                    <label for="id_Observacion" class="text-xs text-gray-900">Observaciones:</label>
+                                    <textarea name="Observacion" id="id_Observacion" class="transition-colors duration-300 focus:outline-0 text-base mt-0.5 resize-none" rows="4" maxlength="250"></textarea>
                                 </div>
-                                <div class="flex flex-wrap m-1">
-                                    <label for="id_Observacion" class="w-full">Observaciones:</label>
-                                    <textarea name="Observacion" id="id_Observacion" class="border-red-300 border-2 w-full outline-none resize-none" rows="3" maxlength="250">{{alquiler.Observacion}}</textarea>
-                                </div>
-                                <div class="flex flex-wrap m-1">
-                                    <label for="id_Cancelacion_pago" class="w-full">Metodo de pago:</label>
-                                    <select name="Cancelacion_pago" required id="id_Cancelacion_pago" class="border-red-300 border-2 w-full outline-none">
-                                        <option value="" selected disabled>Elija un metodo</option>
-                                  {% for metodo in form.Cancelacion_pago.field.queryset %}
-                                        <option value="{{ metodo.id }}">{{ metodo.Metodo }}</option>
-                                    {% endfor %}
-                                    </select>
-                                </div>
+                                
                                 
                                 <div class="flex justify-end mt-4 mb-4">
                                     <button type="submit" class="glass-blue p-2 rounded-lg hover:cursor-pointer">Crear</button>
                                 </div>
                             </form>
-                                
                         </div>
                     </dialog>
