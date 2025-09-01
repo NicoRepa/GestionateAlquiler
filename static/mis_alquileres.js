@@ -53,13 +53,9 @@ checkbox_Agua.addEventListener('change', function() {
   checkbox_crear_alquiler(checkbox_Agua,input_Agua)
 });
 
-
-
 checkbox_ABL.addEventListener('change',function(){
   checkbox_crear_alquiler(checkbox_ABL,input_ABL)
 });
-
-
 
 checkbox_Pasto.addEventListener('change',function(){
   checkbox_crear_alquiler(checkbox_Pasto,input_Pasto)
@@ -74,16 +70,45 @@ const input_ABL_editar = document.getElementById('id_Precio_ABL_editar');
 const checkbox_Pasto_editar = document.getElementById('checkbox_Pasto_editar');
 const input_Pasto_editar = document.getElementById('id_Precio_Pasto_editar');
 
-function actualizarCheckbox(dato1,dato2) {
-  if (dato1.value !== '0') {
-    // Si el input no está vacío, marca el checkbox
-    dato1.removeAttribute('disabled')
-    dato2.checked = true;
+const input_invisible_agua = document.getElementById('input_invisible_agua');
+const input_invisible_Pasto = document.getElementById('input_invisible_Pasto');
+const input_invisible_ABL = document.getElementById('input_invisible_ABL');
+
+function actualizarCheckbox(checkbox,input) {
+  if (input.value !== '0') {
+    
+    input.removeAttribute('disabled')
+    checkbox.checked = true;
   } else {
-    // Si está vacío, desmarca el checkbox
-    dato2.checked = false;
+    
+    checkbox.checked = false;
+    input.value = '';
   }
 }
-actualizarCheckbox(input_agua_editar,checkbox_agua_editar)
-actualizarCheckbox(input_ABL_editar,checkbox_ABL_editar)
-actualizarCheckbox(input_Pasto_editar,checkbox_Pasto_editar)
+actualizarCheckbox(checkbox_agua_editar,input_agua_editar)
+actualizarCheckbox(checkbox_ABL_editar,input_ABL_editar)
+actualizarCheckbox(checkbox_Pasto_editar,input_Pasto_editar)
+
+
+checkbox_agua_editar.addEventListener('change',function(){
+  checkbox_crear_alquiler(checkbox_agua_editar,input_agua_editar);
+  checkbox_editar_alquiler(checkbox_agua_editar,input_agua_editar,input_invisible_agua);
+});
+checkbox_Pasto_editar.addEventListener('change',function(){
+  checkbox_crear_alquiler(checkbox_Pasto_editar,input_Pasto_editar);
+  checkbox_editar_alquiler(checkbox_Pasto_editar,input_Pasto_editar,input_invisible_Pasto);
+});
+checkbox_ABL_editar.addEventListener('change',function(){
+  checkbox_crear_alquiler(checkbox_ABL_editar,input_ABL_editar);
+  checkbox_editar_alquiler(checkbox_ABL_editar,input_ABL_editar,input_invisible_ABL);
+});
+
+
+function checkbox_editar_alquiler(checkbox,input,input_invisible){
+  if (!checkbox.checked){
+    input.setAttribute('disabled','disabled');
+    input_invisible.removeAttribute('disabled');
+  } else {
+    input_invisible.setAttribute('disabled','disabled');
+  }
+}
