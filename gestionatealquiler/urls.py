@@ -19,9 +19,11 @@ from django.urls import path, include
 from django.contrib.auth import views as auth_views
 from django.conf.urls.static import static
 from django.conf import settings
+from django.views.generic import TemplateView
 urlpatterns = [
+    path('',TemplateView.as_view(template_name='index.html'), name="inicio"),
     path('admin/', admin.site.urls),
-     path('alquiler/', include('apps.alquiler.urls'), name='mis_alquileres'),
-     path('usuario/', include('apps.usuario.urls'), name='usuario' ),
-     path("login/", auth_views.LoginView.as_view(redirect_authenticated_user=True), name='login'),
+    path('alquiler/', include('apps.alquiler.urls'), name='mis_alquileres'),
+    path('usuario/', include('apps.usuario.urls'), name='usuario' ),
+    path('login/', auth_views.LoginView.as_view(redirect_authenticated_user=True), name='login'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
