@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView,CreateView,DeleteView,UpdateView,ListView
-from apps.alquiler.models import Alquiler, Dueno
+from apps.alquiler.models import Alquiler, Dueno, DatosBancarios
 from apps.usuario.models import Usuario
-from apps.alquiler.forms import CrearAlquilerForm, CrearDuenoForm
+from apps.alquiler.forms import CrearAlquilerForm, CrearDuenoForm, CrearDatosBancariosForm
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
@@ -27,14 +27,14 @@ class CrearAlquilerView(LoginRequiredMixin, CreateView):
         form.instance.Usuario = self.request.user
         return super().form_valid(form)
 
-class CrearDuenoView( CreateView):
+class CrearDuenoView(LoginRequiredMixin, CreateView):
     model = Dueno
     form_class = CrearDuenoForm
     template_name = 'crear_dueno.html'
     success_url = reverse_lazy('mis_alquileres') 
 # Create your views here.
 
-class EditarAlquilerView(UpdateView):
+class EditarAlquilerView(LoginRequiredMixin,UpdateView):
     model = Alquiler
     form_class = CrearAlquilerForm
     template_name = 'editar_alquiler.html'
@@ -63,7 +63,7 @@ class EditarAlquilerView(UpdateView):
 
         return super().form_valid(form)
 
-class EliminarAlquilerView(DeleteView):
+class EliminarAlquilerView(LoginRequiredMixin,DeleteView):
     model = Alquiler
     template_name = "eliminar_alquiler.html"
     success_url = reverse_lazy('mis_alquileres')
@@ -83,3 +83,9 @@ class ImprimirAlquilerView(ListView):
         # Pasa una instancia vacía del formulario para renderizarla
         context['form'] = CrearAlquilerForm()
         return context
+
+class CrearDatosBancariosView(LoginRequiredMixin,CreateView):
+    model = DatosBancarios
+    form_class = CrearDatosBancariosForm
+    template_name = 'crear_datos_bancarios.html'
+    success_url = reverse_lazy('mis_alquileres')

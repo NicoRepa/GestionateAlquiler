@@ -1,5 +1,5 @@
 from django import forms
-from apps.alquiler.models import Alquiler, Dueno
+from apps.alquiler.models import Alquiler, Dueno, DatosBancarios
 
 class CrearAlquilerForm(forms.ModelForm):
     #Fecha_contrato = forms.DateField(input_formats=['%d/%m/%Y','%d-%m-%Y'])
@@ -11,4 +11,9 @@ class CrearAlquilerForm(forms.ModelForm):
 class CrearDuenoForm(forms.ModelForm):
     class Meta:
         model = Dueno
-        fields = ['Nombre']
+        fields = ['Nombre','Apellido']
+
+class CrearDatosBancariosForm(forms.ModelForm):
+    class Meta:
+        model = DatosBancarios
+        fields = ['Dueno','Alias','Cbu','Titular_cuenta','Banco']

@@ -1,5 +1,5 @@
 from django.urls import path
-from apps.alquiler.views import AlquilerView, CrearAlquilerView, CrearDuenoView, EditarAlquilerView, EliminarAlquilerView, ImprimirAlquilerView
+from apps.alquiler.views import AlquilerView, CrearAlquilerView, CrearDuenoView, EditarAlquilerView, EliminarAlquilerView, ImprimirAlquilerView, CrearDatosBancariosView
 from django.conf.urls.static import static
 from django.conf import settings
 from . import views
@@ -12,4 +12,5 @@ urlpatterns=[
     path("editaralquiler/<int:pk>",EditarAlquilerView.as_view(), name="editar_alquiler"),
     path("eliminaralquiler/<int:pk>",EliminarAlquilerView.as_view(), name="eliminar_alquiler"),
     path("imprimir_alquileres/",method_decorator(xframe_options_exempt, name='dispatch')(ImprimirAlquilerView.as_view()), name="imprimir_alquileres"),
+    path("crear_datos_bancarios/",CrearDatosBancariosView.as_view(), name="datos_bancarios"),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
