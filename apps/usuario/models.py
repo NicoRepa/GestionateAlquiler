@@ -2,7 +2,11 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 
 class Usuario(AbstractUser):
-    pass
+    username = None
+    email = models.EmailField(unique=True)
+
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = []
     groups = models.ManyToManyField(
         'auth.Group',
         related_name='usuario_set',
@@ -14,6 +18,6 @@ class Usuario(AbstractUser):
         blank=True
     )
     def __str__(self):
-        return f'{self.first_name} {self.last_name} ({self.username})'
+        return f'{self.first_name} {self.last_name} {self.email}'
 
 # Create your models here.

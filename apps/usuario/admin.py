@@ -3,6 +3,7 @@ from django.contrib.auth.admin import UserAdmin
 from .models import Usuario
 
 @admin.register(Usuario)
-class IndiceInflacion(UserAdmin):
-    list_display = ('username','first_name','last_name')
+class UsuarioAdmin(UserAdmin):
+    list_display = ('email','first_name','last_name')
+    ordering = ('email',) 
 # Register your models here.

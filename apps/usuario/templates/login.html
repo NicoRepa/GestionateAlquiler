@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Crear usuario{% endblock %}
+{% block title %}Logear usuario{% endblock %}
 
 {% block content %}
 <form action="" method="post">
@@ -10,5 +10,5 @@
 
     <input type="submit">
 </form>
-
+<a href="{% url 'registrarse' %}"> click aqui si no tienes usuario</a>
 {% endblock %}

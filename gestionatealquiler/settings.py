@@ -23,7 +23,9 @@ SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
 ALLOWED_HOSTS = []
 
 
@@ -39,8 +41,7 @@ DJANGO_APPS = [
 ]
 LOCAL_APPS = [
     'apps.alquiler',
-    'apps.datos',
-    'apps.usuario'
+    'apps.usuario',
 ]
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS
 

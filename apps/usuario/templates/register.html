@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Crear usuario{% endblock %}
+
+{% block content %}
+<form action="" method="post">
+    {% csrf_token %}
+    <p>
+    <label for="id_email">Email:</label>
+    <input type="email" name="email" maxlength="254" autofocus required id="id_email">
+    
+    
+  </p>
+
+  
+  <p>
+    <label for="id_first_name">Nombre:</label>
+    <input type="text" name="first_name" maxlength="150" id="id_first_name">
+    
+    
+  </p>
+
+  
+  <p>
+    <label for="id_last_name">Apellidos:</label>
+    <input type="text" name="last_name" maxlength="150" id="id_last_name">
+    
+    
+  </p>
+
+  
+  <p>
+    <label for="id_password1">Contraseña:</label>
+    <input type="password" name="password1" autocomplete="new-password" required aria-describedby="id_password1_helptext" id="id_password1">
+    
+      <span class="helptext" id="id_password1_helptext"><ul><li>Su contraseña no puede asemejarse tanto a su otra información personal.</li><li>Su contraseña debe contener al menos 8 caracteres.</li><li>Su contraseña no puede ser una clave utilizada comúnmente.</li><li>Su contraseña no puede ser completamente numérica.</li></ul></span>
+    
+    
+  </p>
+
+  
+  <p>
+    <label for="id_password2">Contraseña (confirmación):</label>
+    <input type="password" name="password2" autocomplete="new-password" required aria-describedby="id_password2_helptext" id="id_password2">
+    
+      <span class="helptext" id="id_password2_helptext">Para verificar, introduzca la misma contraseña anterior.</span>
+    
+    
+      
+    
+  </p>
+    <input type="submit">
+</form>
+
+{% endblock %}

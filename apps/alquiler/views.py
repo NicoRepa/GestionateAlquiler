@@ -7,7 +7,7 @@ from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
 from django.shortcuts import Http404, get_object_or_404
-class AlquilerView(ListView):
+class AlquilerView(LoginRequiredMixin,ListView):
     model = Alquiler
     template_name = 'mis_alquileres.html'
     context_object_name = 'alquileres'
@@ -74,7 +74,7 @@ class EliminarAlquilerView(LoginRequiredMixin,DeleteView):
         messages.success(request, "La propiedad ha sido eliminada exitosamente.")
         return super().delete(request, *args, **kwargs)
 
-class ImprimirAlquilerView(ListView):
+class ImprimirAlquilerView(LoginRequiredMixin,ListView):
     model = Alquiler
     template_name = "imprimir_alquiler.html"
     context_object_name = 'alquileres'
