@@ -1,23 +1,25 @@
 {% load static %}
-
-<header class="grid grid-cols-3 grid-rows-1 glass-card fixed min-w-screen h-14 z-10 font-TikTok-sans">
-    <div class="col-start-2 col-end-3 flex justify-center items-center">
-            <a href="{% url 'inicio' %}" class="flex justify-center"><img src="/static/icono2.png" alt="" class="w-3/12 rounded-lg"></a>
+<header class="fixed h-14 z-10 font-TikTok-sans min-w-screen flex justify-center">
+    <div class="flex justify-between h-full bg-gradient-to-br from-white/40 to-white/0 backdrop-blur-[42px] border border-azulado/20 rounded-3xl w-[85%] mt-2">
+        <div class="flex h-full items-center ml-20">
+            <a href="{% url 'inicio' %}"> <img src="/static/logo.png" alt="" class="h-9"></a>
     </div>
-    <div class="col-start-3 col-end-4">
-        {% if not user.is_authenticated %}
-            <div class="flex h-full items-center justify-end mr-24">
-                <a href="{% url 'login' %}" class="bg-azulado text-white pt-1.5 pb-1.5 pl-2.5 pr-2.5 rounded-lg text-lg font-semibold hover:bg-azulado-claro border border-azulado">Ingresar</a>
-            </div>
-        {% endif %}
+        <div class="">
+            {% if not user.is_authenticated %}
+                <div class="flex h-full items-center justify-end mr-20">
+                        <a href="{% url 'login' %}" class="flex items-center justify-center h-9 w-24 bg-azulado rounded-lg hover:bg-azulado-claro border border-azulado text-white  text-lg font-semibold ">Ingresar</a>
+                </div>
+            {% endif %}
 
-        {% if user.is_authenticated %}
-        <h2>hola {{user.first_name}}</h2>
-        <form action="{% url 'logout' %}" method="post">
-            {% csrf_token %}
-            <button type="submit">Cerrar sesión</button>
-        </form>
-        {% endif %}
+            {% if user.is_authenticated %}
+            <h2>hola {{user.first_name}}</h2>
+            <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Cerrar sesión</button>
+            </form>
+            {% endif %}
+        </div>
     </div>
+    
      
 </header>
