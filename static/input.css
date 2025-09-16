@@ -2,5 +2,6 @@
 @import "tailwindcss";
 @theme {
     --color-azulado: #5C789E;
+    --color-azulado-claro: #5c789ebe;
     --font-TikTok-sans: "TikTok Sans", sans-serif;
 }
