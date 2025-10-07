@@ -20,17 +20,16 @@ from django.contrib.auth import views as auth_views
 from django.conf.urls.static import static
 from django.conf import settings
 from django.views.generic import TemplateView
-from apps.usuario.views import RegistroView, InicioView, PasswordResetView, PasswordResetDoneView, PasswordResetConfirmView, PasswordResetCompleteView
+from apps.usuario.views import RegistroView, InicioView, PasswordResetView, PasswordResetConfirmView, ActivarCuentaView
 urlpatterns = [
     path('',TemplateView.as_view(template_name='index.html'), name="inicio"),
     path('admin/', admin.site.urls),
-    path('alquiler/', include('apps.alquiler.urls'), name='mis_alquileres'),
+    path('alquiler/', include('apps.alquiler.urls'), name='alquileres'),
     path('usuario/', include('apps.usuario.urls'), name='usuario' ),
     path("registrarse/", RegistroView.as_view(),name='registrarse'),
     path("login/", InicioView.as_view(), name='login'),
     path("logout/", auth_views.LogoutView.as_view(), name='logout'),
     path('restablecer-contrasena/', PasswordResetView.as_view(), name='restablecer-contrasena'),
-    path('restablecer-contrasena/enviado/', PasswordResetDoneView.as_view(), name='restablecer-contrasena-done'),
     path('restablecer-contrasena/confirmar/<uidb64>/<token>/', PasswordResetConfirmView.as_view(), name='restablecer-contrasena-confirm'),
-    path('restablecer-contrasena/completado/', PasswordResetCompleteView.as_view(), name='restablecer-contrasena-complete'),
+    path('validar/<str:uidb64>/<str:token>/', ActivarCuentaView.as_view(), name='activar_cuenta'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
