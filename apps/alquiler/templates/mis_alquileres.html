@@ -11,6 +11,10 @@
                     <p>Crear alquiler</p>
                     {% include 'formulario_crear_alquiler.html' %}
                 </div>
+                <div class="glass-white flex items-center p-2 justify-between font-TikTok-sans w-full">
+                    <p>Crear dueño</p>
+                    {% include 'formulario_crear_dueno.html' %}
+                </div>
 
             </div>
 
@@ -37,7 +41,7 @@
                             <li>Metodo de pago: {{ alquiler.Cancelacion_pago}}</li>
                         </ul>
                     </div>
-                    <div class="mt-2 pt-1.5 border-t border-gray-300">
+                    <div class="mt-2 pt-1.5 border-t border-gray-200">
                         {% include 'formulario_editar_alquiler.html' %}
                         {% include 'formulario_eliminar_alquiler.html' %}
                     </div>

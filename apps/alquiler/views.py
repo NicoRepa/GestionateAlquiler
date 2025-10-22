@@ -6,7 +6,8 @@ from apps.alquiler.forms import CrearAlquilerForm, CrearDuenoForm, CrearDatosBan
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
-from django.shortcuts import Http404, get_object_or_404
+from django.shortcuts import get_object_or_404
+from django.http import Http404
 class AlquilerView(LoginRequiredMixin,ListView):
     model = Alquiler
     template_name = 'mis_alquileres.html'
@@ -23,6 +24,9 @@ class CrearAlquilerView(LoginRequiredMixin, CreateView):
     template_name = 'crear_alquiler.html'
     success_url = reverse_lazy('mis_alquileres') 
     login_url = reverse_lazy('login') 
+
+    def get(self, *args, **kwargs):
+        raise Http404()
     def form_valid(self, form):
         form.instance.Usuario = self.request.user
         return super().form_valid(form)
@@ -32,7 +36,8 @@ class CrearDuenoView(LoginRequiredMixin, CreateView):
     form_class = CrearDuenoForm
     template_name = 'crear_dueno.html'
     success_url = reverse_lazy('mis_alquileres') 
-# Create your views here.
+    def get(self, *args, **kwargs):
+        raise Http404()
 
 class EditarAlquilerView(LoginRequiredMixin,UpdateView):
     model = Alquiler
@@ -62,6 +67,8 @@ class EditarAlquilerView(LoginRequiredMixin,UpdateView):
             instance.Precio_mensual = nuevo_precio
 
         return super().form_valid(form)
+    def get(self, *args, **kwargs):
+        raise Http404()
 
 class EliminarAlquilerView(LoginRequiredMixin,DeleteView):
     model = Alquiler
@@ -73,6 +80,8 @@ class EliminarAlquilerView(LoginRequiredMixin,DeleteView):
     def post(self, request, *args, **kwargs):
         messages.success(request, "La propiedad ha sido eliminada exitosamente.")
         return super().delete(request, *args, **kwargs)
+    def get(self, *args, **kwargs):
+        raise Http404()
 
 class ImprimirAlquilerView(LoginRequiredMixin,ListView):
     model = Alquiler
@@ -83,6 +92,7 @@ class ImprimirAlquilerView(LoginRequiredMixin,ListView):
         # Pasa una instancia vacía del formulario para renderizarla
         context['form'] = CrearAlquilerForm()
         return context
+    
 
 class CrearDatosBancariosView(LoginRequiredMixin,CreateView):
     model = DatosBancarios

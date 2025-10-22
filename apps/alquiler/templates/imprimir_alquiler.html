@@ -45,6 +45,9 @@
                     <div class="col-start-2 col-end-2 row-start-4 row-end-9 border border-black font-base pl-2 pr-2 text-[11px] break-words"><p class="leading-5">{{ alquiler.Observacion }}</p></div>
                 </div>
                 <div class="grid grid-cols-2 grid-rows-[10.1px_minmax(15px,1fr)]">
+                    <div class="col-start-1 col-end-2 flex justify-center row-start-2 row-end-3">
+                        <p class="text-[13px] mb-[8px] font-bold">alias: {{alquiler.Dueno.datos_bancarios.Alias}}</p>
+                    </div>
                     <div class=" col-start-2 col-end-3 flex justify-center row-start-2 row-end-3">
                         <p class="text-[13px] mb-[8px]">Recibido por {{alquiler.Usuario.first_name}} {{alquiler.Usuario.last_name}}</p>
                     </div>

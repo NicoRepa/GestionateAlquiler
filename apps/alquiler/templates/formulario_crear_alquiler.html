@@ -17,7 +17,7 @@
                                         <select name="Dueno" required id="id_Dueno" class="transition-colors duration-300 focus:outline-0 border-b border-gray-200 focus:border-azulado text-base mt-0.5">
                                             <option selected disabled>Elige una opcion</option>
                                             {% for dueno in form.Dueno.field.queryset %}
-                                                <option value="{{ dueno.id }}">{{ dueno.Nombre }}</option>
+                                                <option value="{{ dueno.id }}">{{ dueno.Nombre }} {{dueno.Apellido}}</option>
                                             {% endfor %}      
                                         </select>
                                     </div>

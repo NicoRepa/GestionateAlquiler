@@ -1,6 +1,51 @@
 {% load static %}
-<header class="fixed h-14 z-10 font-TikTok-sans min-w-screen flex justify-center">
-    <div class="flex justify-between h-full bg-gradient-to-br from-white/40 to-white/0 backdrop-blur-[42px] border border-azulado/20 rounded-3xl w-[85%] mt-2">
+<header class="fixed flex justify-center h-14 z-10 font-TikTok-sans min-w-screen mt-2">
+    <div class="w-5/6 bg-gradient-to-br from-white/40 to-white/0 backdrop-blur-[42px] border border-azulado/20 rounded-3xl h-full flex justify-between items-center">
+        <div class="ml-20">
+            <a href="{% url 'inicio' %}"> <img src="/static/logo.png" alt="" class="h-9"></a>
+        </div>
+        <div class="mr-20">
+            {% if not user.is_authenticated %}
+                <a href="{% url 'login' %}" class="flex items-center justify-center h-9 w-24 bg-azulado rounded-lg hover:bg-azulado-claro border border-azulado text-white  text-lg font-semibold ">Ingresar</a>
+            {% else %}
+
+            
+            
+        <button id="dropdownInformationButton" data-dropdown-toggle="dropdownInformation" class="flex items-baseline cursor-pointer" type="button">{{user.first_name}} <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+        </svg>
+        </button>
+
+        <!-- Dropdown menu -->
+        <div id="dropdownInformation" class="z-10 hidden  divide-y divide-gray-400 rounded-lg shadow-sm w-44 bg-azulado border border-azulado/20 !mt-2 !text-white">
+            <ul class="py-2 text-sm " aria-labelledby="dropdownInformationButton">
+            <li>
+                <a href="{% url 'mis_alquileres' %}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600">Alquileres</a>
+            </li>
+            <li>
+                <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
+            </li>
+            <li>
+                <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
+            </li>
+            </ul>
+            <div class="py-2">
+            <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="w-full flex px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600  cursor-pointer">Cerrar sesión</button>
+            </form>
+            </div>
+        </div>
+
+
+            {% endif %}
+        </div>
+    </div>
+
+
+
+
+    <!--<div class="flex justify-between h-full bg-gradient-to-br from-white/40 to-white/0 backdrop-blur-[42px] border border-azulado/20 rounded-3xl w-[85%]">
         <div class="flex h-full items-center ml-20">
             <a href="{% url 'inicio' %}"> <img src="/static/logo.png" alt="" class="h-9"></a>
     </div>
@@ -12,14 +57,18 @@
             {% endif %}
 
             {% if user.is_authenticated %}
-            <h2>hola {{user.first_name}}</h2>
-            <form action="{% url 'logout' %}" method="post">
-                {% csrf_token %}
-                <button type="submit">Cerrar sesión</button>
-            </form>
-            {% endif %}
-        </div>
-    </div>
+            <div class="ml-auto">
+                <details class="flex flex-col items-center mr-8 border border-amber-300 w-32">
+                    <summary class="text-2xl">{{user.first_name}}</summary>
+                    <form action="{% url 'logout' %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit">Cerrar sesión</button>
+                    </form>
+                    {% endif %}
+                </details>
+            </div>
+        
+    </div> -->
     
      
 </header>

@@ -29,7 +29,7 @@ class MetodoPago(models.Model):
         return self.Metodo
 
 class DatosBancarios(models.Model):
-    Dueno = models.ForeignKey('alquiler.Dueno',on_delete=models.CASCADE, related_name='datos_bancarios')
+    Dueno = models.OneToOneField('alquiler.Dueno',on_delete=models.CASCADE, related_name='datos_bancarios')
     Alias = models.CharField(blank=True, default='')
     Cbu = models.IntegerField(blank=True, default=0, null=True)
     Titular_cuenta = models.CharField()
