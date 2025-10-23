@@ -9,14 +9,19 @@ from django.contrib import messages
 from django.shortcuts import get_object_or_404
 from django.http import Http404
 class AlquilerView(LoginRequiredMixin,ListView):
-    model = Alquiler
+    model = Dueno
     template_name = 'mis_alquileres.html'
-    context_object_name = 'alquileres'
+    context_object_name = 'duenos'
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         # Pasa una instancia vacía del formulario para renderizarla
         context['form'] = CrearAlquilerForm()
         return context
+    def get_queryset(self):
+        # Acá definís QUÉ datos querés traer
+        return (
+            Dueno.objects
+                 .prefetch_related('alquileres'))
 
 class CrearAlquilerView(LoginRequiredMixin, CreateView):
     model = Alquiler

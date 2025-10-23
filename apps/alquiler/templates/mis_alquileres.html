@@ -5,14 +5,15 @@
 {% block content %}
 <div class="flex justify-center flex-col items-center mt-10">
         <details class="glass-dark md:w-3xl p-4 border-gray-100 border-2 rounded-2xl min-h-16 w-xs details">
-            <summary class="font-TikTok-sans font-medium text-lg flex items-center gap-1 justify-between hover:cursor-pointer">Crear<i class="bi bi-caret-up icon-caret"></i></summary>
+            <summary class="font-TikTok-sans font-medium text-lg flex items-center gap-1 justify-between hover:cursor-pointer">Agregar<i class="bi bi-caret-up icon-caret"></i></summary>
             <div class="flex justify-center pt-6 flex-col items-center gap-2.5 slide-down">
                 <div class="glass-white flex items-center p-2 justify-between font-TikTok-sans w-full">
                     <p>Crear alquiler</p>
                     {% include 'formulario_crear_alquiler.html' %}
+                    <button class="glass-blue p-2 rounded-lg hover:cursor-pointer btn_abrir_alquiler_modal">Crear</button>
                 </div>
                 <div class="glass-white flex items-center p-2 justify-between font-TikTok-sans w-full">
-                    <p>Crear dueño</p>
+                    <p>Agregar dueño</p>
                     {% include 'formulario_crear_dueno.html' %}
                 </div>
 
@@ -25,6 +26,7 @@
 <div class="mt-10 mb-10 w-full flex justify-center">
     <div class="glass-only pt-10 pb-10 xl:ml-64 xl:mr-64 lg:ml-16 lg:mr-16 w-4xl">
         <div class="flex justify-center flex-col items-center">
+            <!--
             {% for alquiler in alquileres %}
                 <details class="glass-dark md:w-3xl p-3 border-gray-100 border-2 rounded-2xl m-2 w-xs details">
                     <summary class="font-TikTok-sans font-medium flex items-center hover:cursor-pointer justify-between"><span>{{ alquiler.Direccion_Propiedad }}</span> <span class="">{{alquiler.Ultima_actualizacion |date:"d/m"}} {{alquiler.Ultima_actualizacion |time:"H:i"}}</span></summary>
@@ -44,6 +46,42 @@
                     <div class="mt-2 pt-1.5 border-t border-gray-200">
                         {% include 'formulario_editar_alquiler.html' %}
                         {% include 'formulario_eliminar_alquiler.html' %}
+                    </div>
+                </details>
+            {% endfor %} -->
+            {% for dueno in duenos %}
+            <details class="glass-dark md:w-3xl p-3 border-gray-100 border-2 rounded-2xl m-2 w-xs details">
+                    <summary class="font-TikTok-sans font-medium flex items-center hover:cursor-pointer justify-between"><span>{{dueno.Nombre}} {{dueno.Apellido}}</span> <i class="bi bi-caret-up icon-caret"></i></summary>
+                    <div class="mt-2 p-3">
+                        {% for alquiler in dueno.alquileres.all %}
+                        <details class="glass-dark p-3 border-gray-100 border-2 rounded-2xl mt-2 w-full details">
+                            <summary class="font-TikTok-sans font-medium flex items-center hover:cursor-pointer justify-between"><span>{{ alquiler.Direccion_Propiedad }}</span> <span class="">{{alquiler.Ultima_actualizacion |date:"d/m"}} {{alquiler.Ultima_actualizacion |time:"H:i"}}</span></summary>
+                            <div class="mt-2">
+                                <ul>
+                                    <li>Inquilino: {{ alquiler.Inquilino }}</li>
+                                    <li>Fecha del contrato: {{ alquiler.Fecha_contrato|date:'d/m/Y' }}</li>
+                                    <li>Precio: ${{ alquiler.Precio_mensual }}</li>
+                                    <li>Agua: ${{alquiler.Precio_Agua}}</li>
+                                    <li>ABL: ${{alquiler.Precio_ABL}}</li>
+                                    <li>Corte de pasto: ${{alquiler.Precio_Pasto}}</li>
+                                    <li>Cada cuanto se actualiza: {{ alquiler.Meses_actualizacion_IPC }} meses</li>
+                                    <li>Ultima actualizacion: {{ alquiler.Porcentaje_actualizacion}}%</li>
+                                    <li>Metodo de pago: {{ alquiler.Cancelacion_pago}}</li>
+                                </ul>
+                            </div>
+                            <div class="mt-2 pt-1.5 border-t border-gray-200">
+                                {% include 'formulario_editar_alquiler.html' %}
+                                {% include 'formulario_eliminar_alquiler.html' %}
+                            </div>
+                        </details>
+                        
+                        {% empty %}
+                            <p>No tiene alquileres.</p>
+                        {% endfor %}
+                    </div>
+                    <div class="mt-2 pt-1.5 border-t border-gray-200 flex justify-center">
+                        {% include 'formulario_crear_alquiler.html' %}
+                        <button class="flex justify-center items-center w-3/4 border border-azulado-claro h-10 rounded-2xl cursor-pointer hover:bg-azulado/25 btn_abrir_alquiler_modal"><i class="bi bi-plus-lg text-black"></i></button>
                     </div>
                 </details>
             {% endfor %}

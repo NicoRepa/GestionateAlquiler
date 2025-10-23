@@ -4,7 +4,7 @@ from django.db import models
 class Alquiler(models.Model):
     Usuario = models.ForeignKey('usuario.Usuario',on_delete=models.CASCADE)
     Direccion_Propiedad = models.CharField()
-    Dueno = models.ForeignKey('alquiler.Dueno', on_delete=models.CASCADE)
+    Dueno = models.ForeignKey('alquiler.Dueno', on_delete=models.CASCADE, related_name='alquileres')
     Inquilino = models.CharField()
     Fecha_contrato = models.DateField()
     Precio_mensual = models.IntegerField()
