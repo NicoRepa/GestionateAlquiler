@@ -89,15 +89,19 @@ class EliminarAlquilerView(LoginRequiredMixin,DeleteView):
         raise Http404()
 
 class ImprimirAlquilerView(LoginRequiredMixin,ListView):
-    model = Alquiler
+    model = Dueno
     template_name = "imprimir_alquiler.html"
-    context_object_name = 'alquileres'
+    context_object_name = 'duenos'
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         # Pasa una instancia vacía del formulario para renderizarla
         context['form'] = CrearAlquilerForm()
         return context
-    
+    def get_queryset(self):
+        # Acá definís QUÉ datos querés traer
+        return (
+            Dueno.objects
+                 .prefetch_related('alquileres'))    
 
 class CrearDatosBancariosView(LoginRequiredMixin,CreateView):
     model = DatosBancarios

@@ -13,7 +13,8 @@
 <body class="bg-white flex flex-col min-h-screen font-TikTok-sans">
     <main class="flex-grow">
         <div class="xl:ml-64 xl:mr-64 lg:ml-16 lg:mr-16 ">
-            {% for alquiler in alquileres %}
+        {% for dueno in duenos %}
+            {% for alquiler in dueno.alquileres.all %}
             <div class="alquiler-impresion">
                 <div class="grid grid-cols-2 grid-rows-8">
                     <div class="col-start-1 col-end-1 row-start-1 row-end-3 border border-black font-bold pl-2 flex flex-col text-[13px] uppercase"><span class="mr-2">Resumen mensual de alquiler</span><span>{{ alquiler.Direccion_Propiedad }}</span></div>
@@ -57,6 +58,7 @@
                       
             </div>
             {% endfor %}
+        {% endfor %}
         </div>
     </main>
 
